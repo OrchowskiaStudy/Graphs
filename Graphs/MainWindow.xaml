@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         xmlns:graphs="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
         Title="MainWindow">
-    <Grid>        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="Green" Width="200" Height="50">
+            <Button>
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock Text="Some Text"/>                        
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Background="Blue"></Grid>
     </Grid>
 </Window>

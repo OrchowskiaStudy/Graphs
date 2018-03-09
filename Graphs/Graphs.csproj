@@ -115,5 +115,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Edges\" />
+    <Folder Include="Models\Graphs\" />
+    <Folder Include="Models\Matrices\" />
+    <Folder Include="Models\Vertices\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\Controls\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Views\Windows\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
