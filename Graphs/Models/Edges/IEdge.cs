@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Graphs.Models.Vertices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace Graphs.Models.Edges
         string Id { get; }
         int Weight { get; set; }
         string Name { get; set; }
+        bool TryConfigureSource(IVertex source);
+        bool TryConfigureDestination(IVertex destination);
     }
 }

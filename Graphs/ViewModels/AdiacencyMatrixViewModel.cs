@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Graphs.ViewModels
 {
-    public class AdiacencyMatrixViewModel : ViewModelBase
+    public class AdiacencyMatrixInputViewModel : ViewModelBase
     {
-        public AdiacencyMatrixViewModel()
+        public AdiacencyMatrixInputViewModel()
         {
         }
     }

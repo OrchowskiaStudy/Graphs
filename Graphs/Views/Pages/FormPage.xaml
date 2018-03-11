@@ -8,9 +8,6 @@
       xmlns:controls="clr-namespace:Graphs.Views.Controls"
       mc:Ignorable="d" 
       Title="AdiacencyMatrix">
-    <Page.DataContext>
-        <vm:AdiacencyMatrixViewModel />
-    </Page.DataContext>
     <Page.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="White"/>
