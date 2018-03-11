@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Graphs.Views.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,16 @@ using System.Windows.Shapes;
 
 namespace Graphs
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartupWindow : Window
     {
-        public MainWindow()
+        public StartupWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _content.Navigate(new FormPage());
         }
     }
 }
