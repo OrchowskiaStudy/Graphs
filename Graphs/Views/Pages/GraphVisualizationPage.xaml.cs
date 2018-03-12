@@ -18,7 +18,7 @@ namespace Graphs.Views.Pages
     /// <summary>
     /// Interaction logic for GraphVisualizationPage.xaml
     /// </summary>
-    public partial class GraphVisualizationPage : Page
+    public partial class GraphVisualizationPage : PageBase
     {
         public GraphVisualizationPage()
         {

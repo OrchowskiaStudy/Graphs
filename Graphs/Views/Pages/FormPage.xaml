@@ -14,6 +14,8 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <controls:AdiacencyMatrixInput Width="500" Height="500"/>
+        <Border BorderThickness="5" Padding="1" CornerRadius="3" BorderBrush="Red">
+        <controls:AdiacencyMatrixInput/>
+        </Border>
     </Grid>
 </local:PageBase>

@@ -11,7 +11,7 @@
         <vm:AdiacencyMatrixInputViewModel />
     </UserControl.DataContext>
     <Grid Background="White">
-        
-            
+        <TextBlock Foreground="Black" FontSize="15" Margin="10" Text="Tutaj znajdzie się formularz na macierz incydencji :)"/>
+
     </Grid>
 </UserControl>
