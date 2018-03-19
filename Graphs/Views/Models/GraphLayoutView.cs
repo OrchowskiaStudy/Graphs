@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Graphs.Views.Models
 {
-    public class GraphLayoutView : GraphLayout
+    public class GraphLayoutView : GraphLayout<VertexView, EdgeView, GraphView>
     {
-
+        public GraphLayoutView()
+        {
+            this.VisualEdgeMode = System.Windows.Media.EdgeMode.Aliased;
+        }
     }
 }

@@ -16,8 +16,8 @@ namespace Graphs.ViewModels
         };
 
         public ObservableCollection<VertexView> Vertices { get; private set; } = new ObservableCollection<VertexView>();
-        public ObservableCollection<EdgeView> Edges { get; private set; } = new ObservableCollection<EdgeView>();
-        public GraphView GraphView { get; private set; } = new GraphView(true);
+        public ObservableCollection<EdgeView> Edges { get; private set; } = new ObservableCollection<EdgeView>();        
+        public GraphView GraphView { get; private set; } = new GraphView();
 
         public List<string> LayoutAlgorithmTypes { get { return _layoutAlgorithmTypes; } }
 
@@ -33,11 +33,17 @@ namespace Graphs.ViewModels
             Edges.Add(new EdgeView("1", Vertices[0], Vertices[1]));
             //Edges.Add(new EdgeView("2", Vertices[1], Vertices[2]));
 
-            GraphView.AddVertexRange(Vertices);
-            GraphView.AddEdgeRange(Edges);
+            
+            GraphView.AddVertex(Vertices[0]);
+            GraphView.AddVertex(Vertices[1]);
+            GraphView.AddVertex(Vertices[2]);
+            GraphView.AddEdge(Edges[0]);
+            
+            //GraphView.AddVertexRange(new List<VertexView>(Vertices).AsEnumerable());
+            //GraphView.AddEdgeRange(new List<EdgeView>(Edges).AsEnumerable());
 
             SelectedLayoutType = "LinLog";
-            OnPropertyChanged(nameof(GraphView));
+            OnPropertyChanged();
         }
     }
 }

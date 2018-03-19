@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Views\Converters\LocalizationConverter.cs" />
     <Compile Include="Views\Converters\LocalizationExtensions.cs" />
+    <Compile Include="Views\Converters\ToPointConverter.cs" />
     <Compile Include="Views\Models\EdgeView.cs" />
     <Compile Include="Views\Models\GraphLayoutView.cs" />
     <Compile Include="Views\Models\GraphView.cs" />

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Graphs.Views.Models;
+using QuickGraph;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,7 @@ namespace Graphs.Views.Pages
         public GraphVisualizationPage()
         {
             InitializeComponent();
-        }
+          
+        }        
     }
 }
