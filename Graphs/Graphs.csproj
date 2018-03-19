@@ -115,6 +115,7 @@
     <Compile Include="Models\Vertices\IVertex.cs" />
     <Compile Include="Models\Vertices\Vertex.cs" />
     <Compile Include="ViewModels\AdiacencyMatrixViewModel.cs" />
+    <Compile Include="ViewModels\GraphVisualisationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\StartupWindowViewModel.cs" />
     <Compile Include="Views\Commands\RelayCommand.cs" />
@@ -123,6 +124,10 @@
     </Compile>
     <Compile Include="Views\Converters\LocalizationConverter.cs" />
     <Compile Include="Views\Converters\LocalizationExtensions.cs" />
+    <Compile Include="Views\Models\EdgeView.cs" />
+    <Compile Include="Views\Models\GraphLayoutView.cs" />
+    <Compile Include="Views\Models\GraphView.cs" />
+    <Compile Include="Views\Models\VertexView.cs" />
     <Compile Include="Views\Pages\FormPage.xaml.cs">
       <DependentUpon>FormPage.xaml</DependentUpon>
     </Compile>

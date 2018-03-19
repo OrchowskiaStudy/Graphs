@@ -68,10 +68,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <DockPanel>
-                <Frame NavigationUIVisibility="Hidden" />
+                <Frame x:Name="_left" NavigationUIVisibility="Hidden"/>
             </DockPanel>
             <DockPanel Grid.Column="1">
-                <Frame x:Name="_content" NavigationUIVisibility="Hidden" />
+                <Frame x:Name="_right" NavigationUIVisibility="Hidden" />
             </DockPanel>
         </Grid>
     </Grid>

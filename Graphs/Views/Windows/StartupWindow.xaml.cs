@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,11 +22,17 @@ namespace Graphs
         public StartupWindow()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _left.Navigate(new GraphVisualizationPage());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _content.Navigate(new FormPage());
+            _right.Navigate(new FormPage());
         }
     }
 }

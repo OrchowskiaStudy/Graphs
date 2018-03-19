@@ -4,9 +4,69 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Graphs.Views.Pages"
+      xmlns:visuals="clr-namespace:Graphs.Views.Models"
+      xmlns:vm="clr-namespace:Graphs.ViewModels"
+      xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+                xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="GraphVisualizationPage">
-    <Grid>
+    <Page.DataContext>
+        <vm:GraphVisualisationViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="demoTemplate" DataType="{x:Type visuals:VertexView}">
+            <StackPanel Background="Red" Margin="5">
+                <TextBlock Text="V" Foreground="White" />
+            </StackPanel>
+        </DataTemplate>
+
+        <Style TargetType="{x:Type graphsharp:VertexControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type graphsharp:VertexControl}">
+                        <Border BorderBrush="White" 
+                        Background="Black"
+            BorderThickness="2"
+            CornerRadius="10,10,10,10"
+            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Content="{TemplateBinding Vertex}" 
+                            ContentTemplate="{StaticResource demoTemplate}"/>
+
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="LightGray" 
+                            Opacity="0.3" Direction="315"/>
+                            </Border.Effect>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type graphsharp:EdgeControl}">
+            <Style.Resources>
+                <ToolTip x:Key="ToolTipContent">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Text="Edge.ID"/>
+                        <TextBlock Text="{Binding ID}"/>
+                    </StackPanel>
+                </ToolTip>
+            </Style.Resources>
+            <Setter Property="ToolTip" Value="{StaticResource ToolTipContent}"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="Transparent">
+
+        <zoom:ZoomControl  Grid.Row="1"  Zoom="0.2" 
+        ZoomBoxOpacity="0.5" Background="Transparent">
+            <graphsharp:GraphLayout  x:Name="graphLayout" Margin="10"
+                Graph="{Binding Path=GraphView}"
+                                     
+                >
+                <!--LayoutAlgorithmType="{Binding SelectedLayoutType, Mode=OneWay}"
+                OverlapRemovalAlgorithmType="FSA"
+                HighlightAlgorithmType="Simple"-->
+            </graphsharp:GraphLayout>
+        </zoom:ZoomControl>
     </Grid>
 </local:PageBase>
