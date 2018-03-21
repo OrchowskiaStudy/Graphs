@@ -77,5 +77,14 @@ namespace Graphs.Assets.Locales {
                 return ResourceManager.GetString("Language", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select graph layout alghoritm type:.
+        /// </summary>
+        internal static string SelectLayoutAlghoritmType {
+            get {
+                return ResourceManager.GetString("SelectLayoutAlghoritmType", resourceCulture);
+            }
+        }
     }
 }

@@ -123,4 +123,7 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="SelectLayoutAlghoritmType" xml:space="preserve">
+    <value>Select graph layout alghoritm type:</value>
+  </data>
 </root>

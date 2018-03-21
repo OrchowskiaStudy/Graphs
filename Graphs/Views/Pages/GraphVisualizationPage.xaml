@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:clr="clr-namespace:System;assembly=mscorlib"
       xmlns:local="clr-namespace:Graphs.Views.Pages"
       xmlns:visuals="clr-namespace:Graphs.Views.Models"
       xmlns:vm="clr-namespace:Graphs.ViewModels"
@@ -16,12 +17,15 @@ xmlns:cnv="clr-namespace:Graphs.Views.Converters"
         <vm:GraphVisualisationViewModel/>
     </Page.DataContext>
     <Page.Resources>
+        <cnv:BoolToColorConverter x:Key="VertexBorderColorConverter" TrueColor="Yellow" FalseColor="White"/>
         <cnv:ToPointConverter x:Key="routeToPathConverter"/>
+        <cnv:LocalizationConverter x:Key="Loc"/>
+
         <Style TargetType="{x:Type controls:VertexControl}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type controls:VertexControl}">
-                        <Border BorderBrush="White" 
+                        <Border BorderBrush="{Binding IsSelected, Converter={StaticResource VertexBorderColorConverter}}" 
                                 Background="Green"           
                                 BorderThickness="2"
                                 CornerRadius="10,10,10,10"                                
@@ -31,24 +35,46 @@ xmlns:cnv="clr-namespace:Graphs.Views.Converters"
                                 <DropShadowEffect BlurRadius="2" Color="LightGray" 
                             Opacity="0.3" Direction="315"/>
                             </Border.Effect>
-
                         </Border>
                     </ControlTemplate>
-                </Setter.Value>
+                </Setter.Value>                
             </Setter>
+            <EventSetter Event="MouseDoubleClick" Handler="OnVertexClick"/>
+        </Style>
+
+        <Style TargetType="{x:Type controls:EdgeControl}" BasedOn="{StaticResource UndirectedEdgeStyle}">
+            <EventSetter Event="MouseDoubleClick" Handler="OnEdgeClick"/>
         </Style>
 
 
+        <clr:String x:Key="SelectLayoutAlghoritmType">SelectLayoutAlghoritmType</clr:String>
     </Page.Resources>
     <Grid Background="White">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock 
+                FontSize="16"
+                HorizontalAlignment="Center" 
+                Text="{Binding Source={StaticResource SelectLayoutAlghoritmType}, Converter={StaticResource Loc}}"/>
+            <ComboBox           
+                Grid.Column="1"
+            ItemsSource="{Binding LayoutAlgorithmTypes}" 
+            SelectedItem="{Binding SelectedLayoutType, Mode=TwoWay}"/>
+        </Grid>
         <!--<zoom:ZoomControl   
         ZoomBoxOpacity="0.5" Background="Transparent">-->
-            <visuals:GraphLayoutView 
-                LayoutAlgorithmType="BoundedFR" 
+            <visuals:GraphLayoutView Grid.Row="1"
+                LayoutAlgorithmType="{Binding SelectedLayoutType}" 
                 OverlapRemovalAlgorithmType="FSA"                
                 Graph="{Binding GraphView}">
-
+                
             </visuals:GraphLayoutView>
         <!--</zoom:ZoomControl>-->
     </Grid>

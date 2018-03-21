@@ -1,4 +1,6 @@
-﻿using Graphs.Views.Models;
+﻿using Graphs.ViewModels;
+using Graphs.Views.Models;
+using GraphSharp.Controls;
 using QuickGraph;
 using System;
 using System.Collections.Generic;
@@ -23,10 +25,22 @@ namespace Graphs.Views.Pages
     /// </summary>
     public partial class GraphVisualizationPage : PageBase
     {
+        private GraphVisualisationViewModel _viewModel;
+
         public GraphVisualizationPage()
         {
             InitializeComponent();
-          
-        }        
+            _viewModel = DataContext as GraphVisualisationViewModel;
+        }
+
+        private void OnVertexClick(object o, object e)
+        {
+            _viewModel.SelectVertex.Execute(o);
+        }
+
+        private void OnEdgeClick(object o, object e)
+        {
+            _viewModel.SelectEdge.Execute(o);
+        }
     }
 }

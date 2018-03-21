@@ -122,6 +122,7 @@
     <Compile Include="Views\Controls\AdiacencyMatrixInput.xaml.cs">
       <DependentUpon>AdiacencyMatrixInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Converters\BoolToColorConverter.cs" />
     <Compile Include="Views\Converters\LocalizationConverter.cs" />
     <Compile Include="Views\Converters\LocalizationExtensions.cs" />
     <Compile Include="Views\Converters\ToPointConverter.cs" />

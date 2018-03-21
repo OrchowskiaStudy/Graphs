@@ -62,7 +62,7 @@
     <Style TargetType="{x:Type Grid}">
         <Setter Property="ShowGridLines" Value="False"/>
     </Style>
-    <Style TargetType="{x:Type controls:EdgeControl}">
+    <Style TargetType="{x:Type controls:EdgeControl}" x:Key="UndirectedEdgeStyle">
 
         <Style.Resources>
             <ToolTip x:Key="ToolTipContent">
