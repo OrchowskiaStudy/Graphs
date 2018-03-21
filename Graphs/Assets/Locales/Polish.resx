@@ -126,4 +126,10 @@
   <data name="SelectLayoutAlghoritmType" xml:space="preserve">
     <value>Wybierz algorytm rysowania grafów:</value>
   </data>
+  <data name="VertexAlreadyExists_error" xml:space="preserve">
+    <value>Wierzchołek już istnieje!</value>
+  </data>
+  <data name="VertexName" xml:space="preserve">
+    <value>Nazwa wierzchołka</value>
+  </data>
 </root>

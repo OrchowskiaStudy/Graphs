@@ -37,7 +37,11 @@ namespace Graphs.Views.Pages
         {
             _viewModel.SelectVertex.Execute(o);
         }
-
+        private void OnVertexRightClick(object o, object e)
+        {
+            _viewModel.RemoveVertex.Execute(o);
+        }
+        
         private void OnEdgeClick(object o, object e)
         {
             _viewModel.SelectEdge.Execute(o);

@@ -86,5 +86,23 @@ namespace Graphs.Assets.Locales {
                 return ResourceManager.GetString("SelectLayoutAlghoritmType", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wierzchołek już istnieje!.
+        /// </summary>
+        internal static string VertexAlreadyExists_error {
+            get {
+                return ResourceManager.GetString("VertexAlreadyExists_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa wierzchołka.
+        /// </summary>
+        internal static string VertexName {
+            get {
+                return ResourceManager.GetString("VertexName", resourceCulture);
+            }
+        }
     }
 }

@@ -126,4 +126,10 @@
   <data name="SelectLayoutAlghoritmType" xml:space="preserve">
     <value>Select graph layout alghoritm type:</value>
   </data>
+  <data name="VertexAlreadyExists_error" xml:space="preserve">
+    <value>Vertex already exist!</value>
+  </data>
+  <data name="VertexName" xml:space="preserve">
+    <value>Name of Vertex</value>
+  </data>
 </root>

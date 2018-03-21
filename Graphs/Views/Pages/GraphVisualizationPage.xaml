@@ -37,9 +37,10 @@ xmlns:cnv="clr-namespace:Graphs.Views.Converters"
                             </Border.Effect>
                         </Border>
                     </ControlTemplate>
-                </Setter.Value>                
+                </Setter.Value>
             </Setter>
             <EventSetter Event="MouseDoubleClick" Handler="OnVertexClick"/>
+            <EventSetter Event="MouseRightButtonDown" Handler="OnVertexRightClick"/>
         </Style>
 
         <Style TargetType="{x:Type controls:EdgeControl}" BasedOn="{StaticResource UndirectedEdgeStyle}">
@@ -48,34 +49,46 @@ xmlns:cnv="clr-namespace:Graphs.Views.Converters"
 
 
         <clr:String x:Key="SelectLayoutAlghoritmType">SelectLayoutAlghoritmType</clr:String>
+        <clr:String x:Key="VertexName">VertexName</clr:String>
     </Page.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid x:Name="TopBarGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <TextBlock 
                 FontSize="16"
                 HorizontalAlignment="Center" 
                 Text="{Binding Source={StaticResource SelectLayoutAlghoritmType}, Converter={StaticResource Loc}}"/>
+
             <ComboBox           
                 Grid.Column="1"
-            ItemsSource="{Binding LayoutAlgorithmTypes}" 
-            SelectedItem="{Binding SelectedLayoutType, Mode=TwoWay}"/>
+                Margin="10"
+                ItemsSource="{Binding LayoutAlgorithmTypes}" 
+                SelectedItem="{Binding SelectedLayoutType, Mode=TwoWay}"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Source={StaticResource VertexName}, Converter={StaticResource Loc}}"/>
+                    <TextBox Text="{Binding VertexName,Mode=TwoWay}" />
+                </StackPanel>
+                <Button Content="+" Command="{Binding AddVertex}" MinWidth="20"/>
+            </StackPanel>
         </Grid>
         <!--<zoom:ZoomControl   
         ZoomBoxOpacity="0.5" Background="Transparent">-->
-            <visuals:GraphLayoutView Grid.Row="1"
+        <visuals:GraphLayoutView Grid.Row="1"
                 LayoutAlgorithmType="{Binding SelectedLayoutType}" 
-                OverlapRemovalAlgorithmType="FSA"                
+                OverlapRemovalAlgorithmType="FSA"                                       
                 Graph="{Binding GraphView}">
-                
-            </visuals:GraphLayoutView>
+
+        </visuals:GraphLayoutView>
         <!--</zoom:ZoomControl>-->
     </Grid>
 </local:PageBase>
