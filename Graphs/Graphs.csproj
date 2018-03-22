@@ -105,15 +105,10 @@
     </Compile>
     <Compile Include="Configuration\Defaults.cs" />
     <Compile Include="Configuration\LocalizationConfig.cs" />
+    <Compile Include="Models\BL\AdiacencyMatrix.cs" />
     <Compile Include="Models\BL\GraphContext.cs" />
     <Compile Include="Models\BL\Observer\IObservable.cs" />
     <Compile Include="Models\BL\Observer\IObserver.cs" />
-    <Compile Include="Models\Edges\Edge.cs" />
-    <Compile Include="Models\Edges\IEdge.cs" />
-    <Compile Include="Models\Graphs\Graph.cs" />
-    <Compile Include="Models\Graphs\IGraph.cs" />
-    <Compile Include="Models\Vertices\IVertex.cs" />
-    <Compile Include="Models\Vertices\Vertex.cs" />
     <Compile Include="ViewModels\AdiacencyMatrixViewModel.cs" />
     <Compile Include="ViewModels\GraphVisualisationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -122,14 +117,21 @@
     <Compile Include="Views\Controls\AdiacencyMatrixInput.xaml.cs">
       <DependentUpon>AdiacencyMatrixInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\AdjacencyListInput.xaml.cs">
+      <DependentUpon>AdjacencyListInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\IncidenceMatrixInput.xaml.cs">
+      <DependentUpon>IncidenceMatrixInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Converters\BoolToColorConverter.cs" />
     <Compile Include="Views\Converters\LocalizationConverter.cs" />
     <Compile Include="Views\Converters\LocalizationExtensions.cs" />
+    <Compile Include="Views\Converters\NumberConverter.cs" />
     <Compile Include="Views\Converters\ToPointConverter.cs" />
-    <Compile Include="Views\Models\EdgeView.cs" />
+    <Compile Include="Models\Edges\EdgeView.cs" />
     <Compile Include="Views\Models\GraphLayoutView.cs" />
     <Compile Include="Views\Models\GraphView.cs" />
-    <Compile Include="Views\Models\VertexView.cs" />
+    <Compile Include="Models\Vertices\VertexView.cs" />
     <Compile Include="Views\Pages\FormPage.xaml.cs">
       <DependentUpon>FormPage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +144,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\AdiacencyMatrixInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\AdjacencyListInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\IncidenceMatrixInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +199,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Extensions\" />
     <Folder Include="Models\Matrices\" />
   </ItemGroup>
   <ItemGroup>

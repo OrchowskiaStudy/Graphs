@@ -1,13 +1,10 @@
-﻿using GraphSharp.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Graphs.Models.Edges;
+using Graphs.Models.Vertices;
+using GraphSharp.Controls;
 
 namespace Graphs.Views.Models
 {
-    public class GraphLayoutView : GraphLayout<VertexView, EdgeView, GraphView>
+    public class GraphLayoutView : GraphLayout<Vertex, Edge, GraphView>
     {
         public GraphLayoutView()
         {

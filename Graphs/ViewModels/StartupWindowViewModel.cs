@@ -1,14 +1,8 @@
 ﻿using Graphs.Configuration;
 using Graphs.Views.Converters;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Navigation;
 
 namespace Graphs.ViewModels
 {
@@ -16,6 +10,7 @@ namespace Graphs.ViewModels
     {
         public ObservableCollection<string> AvailableLanguages { get { return new ObservableCollection<string>(LocalizationExtensions.GetSupportedLangs()); } }
         private string _selectedLanguage = LocalizationConfig.ActualCultureCode();
+
         public string SelectedLanguage
         {
             get { return _selectedLanguage; }

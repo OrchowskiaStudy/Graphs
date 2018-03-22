@@ -5,58 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graphs"
         xmlns:clr="clr-namespace:System;assembly=mscorlib"
-        xmlns:cnv="clr-namespace:Graphs.Views.Converters"        
+        xmlns:cnv="clr-namespace:Graphs.Views.Converters"
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:graphs="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
         xmlns:vm="clr-namespace:Graphs.ViewModels"
         MinHeight="500"
         MinWidth="500"
-        Title="MainWindow">
+        Title="Graphs app - Aleksander Orchowski">
     <Window.Resources>
-        <cnv:LocalizationConverter x:Key="Loc"/>
+        <cnv:LocalizationConverter x:Key="Loc" />
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="White" />
         </Style>
         <clr:String x:Key="CreateGraphKey">Btn_CreateGraph</clr:String>
         <clr:String x:Key="LanuageKey">Language</clr:String>
     </Window.Resources>
     <Window.DataContext>
-        <vm:StartupWindowViewModel/>
+        <vm:StartupWindowViewModel />
     </Window.DataContext>
     <Grid Background="{StaticResource MenuBackGround}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
+            <RowDefinition Height="50" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
-            <Button Margin="10" MinWidth="70" 
-                    Content="{Binding Source={StaticResource CreateGraphKey}, Converter={StaticResource Loc}}" 
-                    Foreground="Black" 
-                    Click="Button_Click"/>
-            <!--<Button Margin="10" MinWidth="70" Content="" Foreground="Black" Click="Button_Click"/>
-            <Button Margin="10" MinWidth="70" Content="Go to menu" Foreground="Black" Click="Button_Click"/>-->
+            <Button Margin="10" MinWidth="70"
+                    Content="{Binding Source={StaticResource CreateGraphKey}, Converter={StaticResource Loc}}"
+                    Foreground="Black"
+                    Click="Button_Click" />
+            <!--<Button Margin="10" MinWidth="70" Content="" Foreground="Black" Click="Button_Click" />
+            <Button Margin="10" MinWidth="70" Content="Go to menu" Foreground="Black" Click="Button_Click" />-->
             <StackPanel Name="LanguageSelection"  Grid.Column="3" HorizontalAlignment="Right">
-                <TextBlock FontSize="16" 
-                           FontWeight="Bold" 
-                           HorizontalAlignment="Center" 
+                <TextBlock FontSize="16"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
                            Text="{Binding Source={StaticResource LanuageKey},Converter={StaticResource Loc}}" />
-                <ComboBox SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" 
+                <ComboBox SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}"
                           ItemsSource="{Binding AvailableLanguages}"
                           MaxWidth="150" MinWidth="100"
                           Margin="0,0,10,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Foreground="Black" 
-                                       FontSize="16" 
-                                       HorizontalAlignment="Center" 
-                                       Text="{Binding}"/>
+                            <TextBlock Foreground="Black"
+                                       FontSize="16"
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
@@ -64,11 +64,11 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <DockPanel>
-                <Frame x:Name="_left" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="_left" NavigationUIVisibility="Hidden" />
             </DockPanel>
             <DockPanel Grid.Column="1">
                 <Frame x:Name="_right" NavigationUIVisibility="Hidden" />

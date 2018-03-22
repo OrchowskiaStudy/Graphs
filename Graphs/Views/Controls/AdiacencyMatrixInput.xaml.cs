@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Graphs.Models.BL;
+using Graphs.Models.BL.Observer;
+using Graphs.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Graphs.Views.Controls
 {
     /// <summary>
     /// Interaction logic for AdiacencyMatrixInput.xaml
     /// </summary>
-    public partial class AdiacencyMatrixInput : UserControl
+    public partial class AdiacencyMatrixInput : UserControl, IObserver
     {
         public AdiacencyMatrixInput()
         {
             InitializeComponent();
+            GraphContext.Instance.Add(this);
+        }
+
+        public void Notify()
+        {
+            var tmp = lv.DataContext;
+            lv.DataContext = null;
+            lv.DataContext = tmp;
+
+        }
+
+        private void TextBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            (DataContext as AdiacencyMatrixInputViewModel).MatrixValueChanged.Execute(sender);
         }
     }
 }

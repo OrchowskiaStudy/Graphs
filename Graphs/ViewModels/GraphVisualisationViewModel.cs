@@ -1,27 +1,29 @@
-﻿using Graphs.Views.Commands;
+﻿using Graphs.Models.BL;
+using Graphs.Models.BL.Observer;
+using Graphs.Models.Edges;
+using Graphs.Models.Vertices;
+using Graphs.Views.Commands;
 using Graphs.Views.Converters;
 using Graphs.Views.Models;
 using GraphSharp.Controls;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Graphs.ViewModels
 {
-    public class GraphVisualisationViewModel : ViewModelBase
+    public class GraphVisualisationViewModel : ViewModelBase, IObserver, IDisposable
     {
         private const string VERTEX_EXIST_ERROR_MESSAGE = "VertexAlreadyExists_error";
+
         private List<string> _layoutAlgorithmTypes = new List<string>()
         {
             "BoundedFR", "Circular", "CompoundFDP", "FR", "EfficientSugiyama", "ISOM", "KK", "LinLog", "Tree"
         };
 
-        public ObservableCollection<VertexView> Vertices { get; private set; } = new ObservableCollection<VertexView>();
-        public ObservableCollection<EdgeView> Edges { get; private set; } = new ObservableCollection<EdgeView>();
+        public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
+        public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
         public GraphView GraphView { get; private set; } = new GraphView();
 
         public List<string> LayoutAlgorithmTypes { get { return _layoutAlgorithmTypes; } }
@@ -33,7 +35,8 @@ namespace Graphs.ViewModels
 
         public GraphVisualisationViewModel()
         {
-            SelectedLayoutType = LayoutAlgorithmTypes.FirstOrDefault();
+            GraphContext.Instance.Add(this);
+            SelectedLayoutType = LayoutAlgorithmTypes[1];
         }
 
         public RelayCommand AddVertex => new RelayCommand((param) =>
@@ -44,27 +47,27 @@ namespace Graphs.ViewModels
                 MessageBox.Show(VERTEX_EXIST_ERROR_MESSAGE.Localize());
                 return;
             }
-            var vertex = new VertexView(VertexName, VertexName);
+            var vertex = new Vertex(VertexName, VertexName);
             Vertices.Add(vertex);
             GraphView.AddVertex(vertex);
+            GraphContext.Instance.NotifyObservers(this);
             OnPropertyChanged(nameof(GraphView));
         });
 
-
         public RelayCommand SelectEdge => new RelayCommand((param) =>
         {
-            if (param is EdgeControl control && control.Edge is EdgeView selectedEdge)
+            if (param is EdgeControl control && control.Edge is Edge selectedEdge)
             {
                 Edges.Remove(selectedEdge);
                 GraphView.RemoveEdge(selectedEdge);
+                GraphContext.Instance.NotifyObservers(this);
             }
         });
 
         public RelayCommand SelectVertex => new RelayCommand((param) =>
         {
-            if (param is VertexControl control && control.Vertex is VertexView selectedVertex)
+            if (param is VertexControl control && control.Vertex is Vertex selectedVertex)
             {
-
                 selectedVertex.IsSelected = !selectedVertex.IsSelected;
                 selectedVertex.OnPropertyChanged(nameof(selectedVertex.IsSelected));
 
@@ -74,9 +77,10 @@ namespace Graphs.ViewModels
                 {
                     var secondVertex = selectedVertices.Where(vertex => vertex != selectedVertex).FirstOrDefault();
                     if (Edges.Where(i => (i.Source == selectedVertex && i.Target == secondVertex) || (i.Source == secondVertex && i.Target == selectedVertex)).Any()) { ClearVertexSelection(); return; }
-                    var edge = new EdgeView(Guid.NewGuid().ToString(), selectedVertex, secondVertex);
+                    var edge = new Edge(Guid.NewGuid().ToString(), selectedVertex, secondVertex);
                     Edges.Add(edge);
                     GraphView.AddEdge(edge);
+                    GraphContext.Instance.NotifyObservers(this);
                     ClearVertexSelection();
                 }
             }
@@ -84,17 +88,32 @@ namespace Graphs.ViewModels
 
         public RelayCommand RemoveVertex => new RelayCommand((param) =>
         {
-            if (param is VertexControl control && control.Vertex is VertexView selectedVertex)
+            if (param is VertexControl control && control.Vertex is Vertex selectedVertex)
             {
                 GraphView.RemoveVertex(selectedVertex);
                 Vertices.Remove(selectedVertex);
                 Edges.Where(i => (i.Source == selectedVertex || i.Target == selectedVertex)).ToList().ForEach(i => Edges.Remove(i));
+                GraphContext.Instance.NotifyObservers(this);
             }
         });
 
         private void ClearVertexSelection()
         {
             Vertices.ToList().ForEach(vertex => { vertex.IsSelected = false; vertex.OnPropertyChanged(nameof(vertex.IsSelected)); });
+        }
+
+        public void Notify()
+        {
+            GraphView.Edges.ToList().ForEach(item => GraphView.RemoveEdge(item));
+            GraphView.Vertices.ToList().ForEach(item => GraphView.RemoveVertex(item));
+            GraphView.AddVertexRange(Vertices);
+            GraphView.AddEdgeRange(Edges);
+            OnPropertyChanged(nameof(GraphView));
+        }
+
+        public void Dispose()
+        {
+            GraphContext.Instance.Remove(this);
         }
     }
 }

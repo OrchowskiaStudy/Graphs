@@ -1,10 +1,5 @@
-﻿using GraphSharp.Controls;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -15,8 +10,8 @@ namespace Graphs.Views.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-
             #region Get the inputs
+
             //get the position of the source
             Point sourcePos = new Point()
             {
@@ -44,7 +39,9 @@ namespace Graphs.Views.Converters
 
             //get the route informations
             Point[] routeInformation = (values[8] != DependencyProperty.UnsetValue ? (Point[])values[8] : null);
-            #endregion
+
+            #endregion Get the inputs
+
             bool hasRouteInfo = routeInformation != null && routeInformation.Length > 0;
 
             //
@@ -52,7 +49,6 @@ namespace Graphs.Views.Converters
             //
             Point p1 = CalculateAttachPoint(sourcePos, sourceSize, (hasRouteInfo ? routeInformation[0] : targetPos));
             Point p2 = CalculateAttachPoint(targetPos, targetSize, (hasRouteInfo ? routeInformation[routeInformation.Length - 1] : sourcePos));
-
 
             PathSegment[] segments = new PathSegment[1 + (hasRouteInfo ? routeInformation.Length : 0)];
             if (hasRouteInfo)
@@ -73,6 +69,7 @@ namespace Graphs.Views.Converters
 
             return pfc;
         }
+
         public static Point CalculateAttachPoint(Point s, Size sourceSize, Point t)
         {
             double[] sides = new double[4];
@@ -90,6 +87,7 @@ namespace Graphs.Views.Converters
 
             return t + fi * (s - t);
         }
+
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

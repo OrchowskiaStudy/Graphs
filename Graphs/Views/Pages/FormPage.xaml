@@ -1,21 +1,42 @@
 ﻿<local:PageBase x:Class="Graphs.Views.Pages.FormPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Graphs.Views.Pages"
       xmlns:vm="clr-namespace:Graphs.ViewModels"
       xmlns:controls="clr-namespace:Graphs.Views.Controls"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       Title="AdiacencyMatrix">
     <Page.Resources>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="White" />
         </Style>
     </Page.Resources>
     <Grid>
         <Border BorderThickness="5" Padding="1" CornerRadius="3" BorderBrush="Red">
-            <controls:AdiacencyMatrixInput/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TabControl>
+                    <TabItem Header="AdjacencyMatrix">
+                        <controls:AdiacencyMatrixInput />
+                    </TabItem>
+                    <TabItem Header="IncidenceMatrix">
+                        <!--<controls:AdiacencyMatrixInput />-->
+                    </TabItem>
+                    <TabItem Header="AdjacencyList">
+                        <!--<controls:AdiacencyMatrixInput />-->
+                    </TabItem>
+                </TabControl>
+                <Grid Grid.Row="1">
+                    <Border BorderThickness="5" Padding="1" CornerRadius="3" BorderBrush="Red">
+                        <TextBlock Text="Lista krawędzi i wierzchołków + edycja nagłówków/wag"/>
+                    </Border>
+                </Grid>
+            </Grid>
         </Border>
     </Grid>
 </local:PageBase>

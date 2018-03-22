@@ -1,14 +1,11 @@
-﻿using QuickGraph;
-using QuickGraph.Collections;
-using System;
+﻿using Graphs.Models.Edges;
+using Graphs.Models.Vertices;
+using QuickGraph;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Views.Models
 {
-    public class GraphView : BidirectionalGraph<VertexView, EdgeView>
+    public class GraphView : BidirectionalGraph<Vertex, Edge>
     {
         public GraphView()
         {
@@ -26,7 +23,7 @@ namespace Graphs.Views.Models
         {
         }
 
-        public GraphView(bool allowParallelEdges, int vertexCapacity, int edgeCapacity, IEqualityComparer<VertexView> vertexComparer) : base(allowParallelEdges, vertexCapacity, edgeCapacity, vertexComparer)
+        public GraphView(bool allowParallelEdges, int vertexCapacity, int edgeCapacity, IEqualityComparer<Vertex> vertexComparer) : base(allowParallelEdges, vertexCapacity, edgeCapacity, vertexComparer)
         {
         }
     }

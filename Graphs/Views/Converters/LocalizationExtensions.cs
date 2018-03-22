@@ -1,11 +1,7 @@
 ﻿using Graphs.Configuration;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Views.Converters
 {
@@ -21,6 +17,7 @@ namespace Graphs.Views.Converters
         {
             return culturesResources.Select(entry => entry.Key).ToList();
         }
+
         public static string Localize(this string key)
         {
             var cultureCode = LocalizationConfig.ActualCultureCode();

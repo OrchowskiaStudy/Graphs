@@ -1,11 +1,6 @@
 ﻿using Graphs.Models.BL;
 using Graphs.Models.BL.Observer;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -31,7 +26,7 @@ namespace Graphs.Views.Pages
             GraphContext.Instance.Remove(this);
         }
 
-        public virtual void Notify(object arg)
+        public virtual void Notify()
         {
             Debug.WriteLine($"View: {this.ViewNameKey} notified by Observable");
         }

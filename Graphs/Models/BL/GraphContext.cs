@@ -1,16 +1,23 @@
 ﻿using Graphs.Models.BL.Observer;
-using System;
+using Graphs.Models.Edges;
+using Graphs.Models.Vertices;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
     public class GraphContext : IObservable
     {
+        static int _vertexCount = 0;
+        public static int VertexCount { get { return ++_vertexCount; } }
+        static int _edgeCount = 0;
+        public static int EdgeCount { get { return ++_edgeCount; } }
         private static GraphContext _instance;
         private readonly HashSet<IObserver> _clients = new HashSet<IObserver>();
+
+        public List<Vertex> Vertices { get; private set; } = new List<Vertex>();
+        public List<Edge> Edges { get; private set; } = new List<Edge>();
+
         public static GraphContext Instance
         {
             get
@@ -20,7 +27,9 @@ namespace Graphs.Models.BL
             }
         }
 
-        private GraphContext() { }
+        private GraphContext()
+        {
+        }
 
         public void Add(IObserver observer)
         {
@@ -38,6 +47,11 @@ namespace Graphs.Models.BL
         public void RemoveAll()
         {
             _clients.Clear();
+        }
+
+        public void NotifyObservers(IObserver except)
+        {
+            _clients.Where(observer => observer != except).ToList().ForEach(item => item.Notify());
         }
     }
 }
