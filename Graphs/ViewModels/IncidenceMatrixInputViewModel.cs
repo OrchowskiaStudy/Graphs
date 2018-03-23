@@ -9,30 +9,32 @@ using System.Linq;
 
 namespace Graphs.ViewModels
 {
-    public class AdiacencyMatrixInputViewModel : ViewModelBase, IObserver
+    public class IncidenceMatrixInputViewModel : ViewModelBase, IObserver
     {
         public List<List<Node>> Matrix { get; set; }
-        private AdiacencyMatrix adiacencyMatrix = new AdiacencyMatrix();
         public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
         public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
-        public AdiacencyMatrixInputViewModel()
+
+        private IncidenceMatrix incidenceMatrix = new IncidenceMatrix();
+
+        public IncidenceMatrixInputViewModel()
         {
             GraphContext.Instance.Add(this);
-            Matrix = adiacencyMatrix.ToMatrix().ToReferenceMatrix();
+            Matrix = incidenceMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
         }
 
         public void Notify()
         {
-            Matrix = adiacencyMatrix.ToMatrix().ToReferenceMatrix();
+            Matrix = incidenceMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
             OnPropertyChanged(nameof(Vertices));
             OnPropertyChanged(nameof(Edges));
-        }        
+        }
 
         public RelayCommand MatrixValueChanged => new RelayCommand((sender) =>
         {
-            adiacencyMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
+            incidenceMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
         });
     }
 }

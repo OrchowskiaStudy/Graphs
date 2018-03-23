@@ -1,6 +1,6 @@
 ﻿namespace Graphs.Models.BL.Observer
 {
-    public interface IObservable
+    public interface IObserverable
     {
         void NotifyObservers(IObserver except);
 

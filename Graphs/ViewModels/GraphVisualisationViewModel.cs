@@ -37,6 +37,7 @@ namespace Graphs.ViewModels
         {
             GraphContext.Instance.Add(this);
             SelectedLayoutType = LayoutAlgorithmTypes[1];
+            Notify();
         }
 
         public RelayCommand AddVertex => new RelayCommand((param) =>

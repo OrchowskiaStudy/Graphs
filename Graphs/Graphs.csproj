@@ -105,11 +105,18 @@
     </Compile>
     <Compile Include="Configuration\Defaults.cs" />
     <Compile Include="Configuration\LocalizationConfig.cs" />
+    <Compile Include="Extensions\MappingExtensions.cs" />
+    <Compile Include="Models\BL\AdiacencyList.cs" />
+    <Compile Include="Models\BL\IncidenceMatrix.cs" />
     <Compile Include="Models\BL\AdiacencyMatrix.cs" />
     <Compile Include="Models\BL\GraphContext.cs" />
     <Compile Include="Models\BL\Observer\IObservable.cs" />
     <Compile Include="Models\BL\Observer\IObserver.cs" />
+    <Compile Include="Models\Vertices\Node.cs" />
+    <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
+    <Compile Include="ViewModels\IncidenceMatrixInputViewModel.cs" />
     <Compile Include="ViewModels\AdiacencyMatrixViewModel.cs" />
+    <Compile Include="ViewModels\FormPageViewModel.cs" />
     <Compile Include="ViewModels\GraphVisualisationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\StartupWindowViewModel.cs" />
@@ -199,7 +206,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Models\Matrices\" />
   </ItemGroup>
   <ItemGroup>

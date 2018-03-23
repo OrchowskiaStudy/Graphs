@@ -38,10 +38,7 @@
             </Grid.ColumnDefinitions>
             <Button Margin="10" MinWidth="70"
                     Content="{Binding Source={StaticResource CreateGraphKey}, Converter={StaticResource Loc}}"
-                    Foreground="Black"
-                    Click="Button_Click" />
-            <!--<Button Margin="10" MinWidth="70" Content="" Foreground="Black" Click="Button_Click" />
-            <Button Margin="10" MinWidth="70" Content="Go to menu" Foreground="Black" Click="Button_Click" />-->
+                    Foreground="Black"/>       
             <StackPanel Name="LanguageSelection"  Grid.Column="3" HorizontalAlignment="Right">
                 <TextBlock FontSize="16"
                            FontWeight="Bold"

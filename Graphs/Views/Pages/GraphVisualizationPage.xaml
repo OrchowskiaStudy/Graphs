@@ -33,7 +33,10 @@
                                 BorderThickness="2"
                                 CornerRadius="10,10,10,10"
                                 Padding="5">
-                            <TextBlock Foreground="White" FontSize="16" Text="{Binding Id}" />
+                            <Grid>
+                                <TextBlock Foreground="White" FontSize="3" VerticalAlignment="Top" HorizontalAlignment="Right" Text="{Binding Id}" />
+                                <TextBlock Foreground="White" FontSize="16" Text="{Binding Name}" />
+                            </Grid>
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="5" Color="LightGray"
                             Opacity="0.2" Direction="0" />

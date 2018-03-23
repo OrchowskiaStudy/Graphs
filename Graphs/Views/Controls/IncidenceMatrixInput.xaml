@@ -1,12 +1,89 @@
 ﻿<UserControl x:Class="Graphs.Views.Controls.IncidenceMatrixInput"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Graphs.Views.Controls"
-             mc:Ignorable="d" 
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:tool="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             xmlns:cnv="clr-namespace:Graphs.Views.Converters"
+             xmlns:vm="clr-namespace:Graphs.ViewModels"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+    <UserControl.DataContext>
+        <vm:IncidenceMatrixInputViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cnv:NumberConverter x:Key="NumberCnv"/>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <ItemsControl x:Name="eIds" Height="20" Margin="20,0,0,0" ItemsSource="{Binding Edges}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock                                
+                                   TextAlignment="Center"
+                                   TextTrimming="CharacterEllipsis"
+                                   Width="20" Height="20"
+                                   Text="{Binding Id,Mode=OneWay}"
+                                   Foreground="Black"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ItemsControl x:Name="vIds" Width="20" VerticalAlignment="Top" ItemsSource="{Binding Vertices}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Center"                                   
+                                   Width="20" Height="20"
+                                   Text="{Binding Id,Mode=OneWay}"
+                                   Foreground="Black"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <ItemsControl Grid.Column="1" x:Name="lv" Background="AliceBlue" ItemsSource="{Binding Matrix}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <tool:MaskedTextBox Width="20" 
+                                                        Height="20" 
+                                                        HorizontalContentAlignment="Center" 
+                                                        Foreground="Black"  
+                                                        Mask="0"
+                                                        Text="{Binding Path=N, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            </tool:MaskedTextBox>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </StackPanel>
+            <Button Grid.Row="1" Content="MISSING-TRANSLATION-KEY-ACTUALIZE" Command="{Binding MatrixValueChanged}"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -9,7 +9,8 @@ namespace Graphs.Models.Vertices
         public int Number { get; private set; }
         public string Id { get; set; }
         public Guid Uid { get; private set; }
-        public string Name { get; set; }
+        private string _name;
+        public string Name { get { return _name; } set { _name = value; OnPropertyChanged(nameof(Name)); } }
         public bool IsSelected { get; set; }
 
         public Vertex(string id, string name = "")

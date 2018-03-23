@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Graphs.Models.BL
 {
-    public class GraphContext : IObservable
+    public class GraphContext : IObserverable
     {
         static int _vertexCount = 0;
         public static int VertexCount { get { return ++_vertexCount; } }

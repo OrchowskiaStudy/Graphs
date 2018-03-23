@@ -23,11 +23,13 @@ namespace Graphs.Views.Controls
             lv.DataContext = null;
             lv.DataContext = tmp;
 
-        }
+            tmp = eIds.DataContext;
+            eIds.DataContext = null;
+            eIds.DataContext = tmp;
 
-        private void TextBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            (DataContext as AdiacencyMatrixInputViewModel).MatrixValueChanged.Execute(sender);
+            tmp = vIds.DataContext;
+            vIds.DataContext = null;
+            vIds.DataContext = tmp;
         }
     }
 }

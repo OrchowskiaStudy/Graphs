@@ -66,9 +66,15 @@
 
         <Style.Resources>
             <ToolTip x:Key="ToolTipContent">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold" Text="Edge.ID" />
-                    <TextBlock Text="{Binding Id}" />
+                <StackPanel Background="Black" Margin="-2">
+                    <TextBlock FontWeight="Bold">
+                        <Run Text="Edge ID:" />
+                        <Run Text="{Binding Path=Id,Mode=OneWay}" />
+                    </TextBlock>
+                    <TextBlock FontWeight="Bold">
+                        <Run  Text="Weight:" />
+                        <Run Text="{Binding Path=WeightRef.Value}" />
+                    </TextBlock>
                 </StackPanel>
             </ToolTip>
         </Style.Resources>

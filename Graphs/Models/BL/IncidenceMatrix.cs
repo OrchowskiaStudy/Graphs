@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
-    public class AdiacencyMatrix
+    public class IncidenceMatrix
     {
         public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
         public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
@@ -16,7 +16,7 @@ namespace Graphs.Models.BL
         public List<List<int>> ToMatrix()
         {
             List<List<int>> matrix = new List<List<int>>();
-            for (int i = 0; i < Vertices.Count; i++)
+            for (int i = 0; i < Edges.Count; i++)
             {
                 var row = FillRow(i).ToList();
                 matrix.Add(row);
@@ -27,26 +27,29 @@ namespace Graphs.Models.BL
         public void UpdateContext(List<List<int>> list)
         {
             Edges.Clear();
-            for (int i = 0; i < list.Count; i++)
+            foreach (var row in list)
             {
-                for (int j = 0; j < list.Count; j++)
+                var v1 = row.IndexOf(1);
+                var v2 = row.LastIndexOf(1);
+                if (v1 != v2 && v1 >= 0 && v2 >= 0)
                 {
-                    if (i == j) continue;
-                    if (list[i][j] == 1 && list[j][i] == 1)
-                    {
-                        Edges.Add(new Edge("", Vertices[i], Vertices[j]));
-                    }
+                    var vertexS = Vertices[v1];
+                    var vertexT = Vertices[v2];
+                    if(!Edges.Where(e=> e.Source == vertexS && e.Target == vertexT || e.Target == vertexS && e.Source == vertexT).Any())
+                    Edges.Add(new Edge("", vertexS, vertexT));
+
                 }
             }
             GraphContext.Instance.NotifyObservers(null);
         }
 
-        private IEnumerable<int> FillRow(int p)
+        private IEnumerable<int> FillRow(int e)
         {
             for (int i = 0; i < Vertices.Count; i++)
             {
-                var result = Edges.ToList().Where(edge => ((edge.Target.Equals(Vertices[i])) && (edge.Source.Equals(Vertices[p])))
-                || (edge.Source.Equals(Vertices[i])) && (edge.Target.Equals(Vertices[p]))).Any() ? 1 : 0;
+                var edge = Edges[e];
+                var vertex = Vertices[i];
+                var result = edge.Source == Vertices[i] || edge.Target == Vertices[i] ? 1 : 0;
                 yield return result;
             }
         }
