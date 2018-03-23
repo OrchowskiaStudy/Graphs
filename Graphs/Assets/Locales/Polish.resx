@@ -117,19 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddEdge" xml:space="preserve">
+    <value>Dodaj krawędź</value>
+  </data>
+  <data name="AdjacencyList" xml:space="preserve">
+    <value>Lista sąsiedztwa</value>
+  </data>
+  <data name="AdjacencyMatrix" xml:space="preserve">
+    <value>Macierz sąsiedztwa</value>
+  </data>
   <data name="Btn_CreateGraph" xml:space="preserve">
     <value>Utwórz nowy graf</value>
+  </data>
+  <data name="EdgesList" xml:space="preserve">
+    <value>Lista krawędzi</value>
+  </data>
+  <data name="IncidenceMatrix" xml:space="preserve">
+    <value>Macierz incydencji</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Język</value>
   </data>
+  <data name="MemoryView" xml:space="preserve">
+    <value>Podgląd pamięci wierzchołków i krawędzi</value>
+  </data>
+  <data name="RemoveEdge" xml:space="preserve">
+    <value>Usuń krawędź</value>
+  </data>
   <data name="SelectLayoutAlghoritmType" xml:space="preserve">
     <value>Wybierz algorytm rysowania grafów:</value>
+  </data>
+  <data name="UpdateGraph" xml:space="preserve">
+    <value>Zaktualizuj graf</value>
   </data>
   <data name="VertexAlreadyExists_error" xml:space="preserve">
     <value>Wierzchołek już istnieje!</value>
   </data>
   <data name="VertexName" xml:space="preserve">
     <value>Nazwa wierzchołka</value>
+  </data>
+  <data name="VerticesList" xml:space="preserve">
+    <value>Lista wierzchołków</value>
   </data>
 </root>

@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Graphs.Views.Controls"
              xmlns:tool="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"
              xmlns:cnv="clr-namespace:Graphs.Views.Converters"
              xmlns:vm="clr-namespace:Graphs.ViewModels"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -13,10 +14,13 @@
         <vm:AdiacencyMatrixInputViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
+        <cnv:LocalizationConverter x:Key="Loc" />
         <cnv:NumberConverter x:Key="NumberCnv"/>
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+
+        <clr:String x:Key="UpdateGraph">UpdateGraph</clr:String>
     </UserControl.Resources>
     <Grid Background="Transparent">
         <Grid>
@@ -84,7 +88,7 @@
                     </ItemsControl>
                 </Grid>
             </StackPanel>
-            <Button Grid.Row="1" Content="MISSING-TRANSLATION-KEY-ACTUALIZE" Command="{Binding MatrixValueChanged}"/>
+            <Button Grid.Row="1" Content="{Binding Source={StaticResource UpdateGraph}, Converter={StaticResource Loc}}" Command="{Binding MatrixValueChanged}"/>
         </Grid>
     </Grid>
 </UserControl>

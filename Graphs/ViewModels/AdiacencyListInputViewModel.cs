@@ -19,9 +19,10 @@ namespace Graphs.ViewModels
         public Vertex SelectedC1 { get; set; }
         public Vertex SelectedC2 { get; set; }
 
-        private AdiacencyList _adiacencyList = new AdiacencyList();
+        private AdiacencyList _adiacencyList;
         public AdiacencyListInputViewModel()
         {
+            _adiacencyList = new AdiacencyList(Vertices, Edges);
             AdiacencyList = _adiacencyList.ToAdiacencyList();
             GraphContext.Instance.Add(this);
         }

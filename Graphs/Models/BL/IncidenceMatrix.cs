@@ -10,9 +10,14 @@ namespace Graphs.Models.BL
 {
     public class IncidenceMatrix
     {
-        public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
-        public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
+        public List<Vertex> Vertices { get; private set; }
+        public List<Edge> Edges { get; private set; }
 
+        public IncidenceMatrix(List<Vertex> vertices, List<Edge> edges)
+        {
+            Vertices = vertices;
+            Edges = edges;
+        }
         public List<List<int>> ToMatrix()
         {
             List<List<int>> matrix = new List<List<int>>();
@@ -26,7 +31,7 @@ namespace Graphs.Models.BL
 
         public void UpdateContext(List<List<int>> list)
         {
-            Edges.Clear();
+            GraphContext.ClearEdges();
             foreach (var row in list)
             {
                 var v1 = row.IndexOf(1);
@@ -35,8 +40,8 @@ namespace Graphs.Models.BL
                 {
                     var vertexS = Vertices[v1];
                     var vertexT = Vertices[v2];
-                    if(!Edges.Where(e=> e.Source == vertexS && e.Target == vertexT || e.Target == vertexS && e.Source == vertexT).Any())
-                    Edges.Add(new Edge("", vertexS, vertexT));
+                    if (!Edges.Where(e => e.Source == vertexS && e.Target == vertexT || e.Target == vertexS && e.Source == vertexT).Any())
+                        Edges.Add(new Edge("", vertexS, vertexT));
 
                 }
             }

@@ -12,19 +12,20 @@ namespace Graphs.ViewModels
     public class AdiacencyMatrixInputViewModel : ViewModelBase, IObserver
     {
         public List<List<Node>> Matrix { get; set; }
-        private AdiacencyMatrix adiacencyMatrix = new AdiacencyMatrix();
+        private AdiacencyMatrix _adiacencyMatrix;
         public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
         public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
         public AdiacencyMatrixInputViewModel()
         {
             GraphContext.Instance.Add(this);
-            Matrix = adiacencyMatrix.ToMatrix().ToReferenceMatrix();
+            _adiacencyMatrix = new AdiacencyMatrix(Vertices, Edges);
+            Matrix = _adiacencyMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
         }
 
         public void Notify()
         {
-            Matrix = adiacencyMatrix.ToMatrix().ToReferenceMatrix();
+            Matrix = _adiacencyMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
             OnPropertyChanged(nameof(Vertices));
             OnPropertyChanged(nameof(Edges));
@@ -32,7 +33,7 @@ namespace Graphs.ViewModels
 
         public RelayCommand MatrixValueChanged => new RelayCommand((sender) =>
         {
-            adiacencyMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
+            _adiacencyMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
         });
     }
 }

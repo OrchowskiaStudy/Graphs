@@ -61,11 +61,56 @@ namespace Graphs.Assets.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj krawędź.
+        /// </summary>
+        internal static string AddEdge {
+            get {
+                return ResourceManager.GetString("AddEdge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista sąsiedztwa.
+        /// </summary>
+        internal static string AdjacencyList {
+            get {
+                return ResourceManager.GetString("AdjacencyList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macierz sąsiedztwa.
+        /// </summary>
+        internal static string AdjacencyMatrix {
+            get {
+                return ResourceManager.GetString("AdjacencyMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utwórz nowy graf.
         /// </summary>
         internal static string Btn_CreateGraph {
             get {
                 return ResourceManager.GetString("Btn_CreateGraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista krawędzi.
+        /// </summary>
+        internal static string EdgesList {
+            get {
+                return ResourceManager.GetString("EdgesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macierz incydencji.
+        /// </summary>
+        internal static string IncidenceMatrix {
+            get {
+                return ResourceManager.GetString("IncidenceMatrix", resourceCulture);
             }
         }
         
@@ -79,11 +124,38 @@ namespace Graphs.Assets.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podgląd pamięci wierzchołków i krawędzi.
+        /// </summary>
+        internal static string MemoryView {
+            get {
+                return ResourceManager.GetString("MemoryView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuń krawędź.
+        /// </summary>
+        internal static string RemoveEdge {
+            get {
+                return ResourceManager.GetString("RemoveEdge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wybierz algorytm rysowania grafów:.
         /// </summary>
         internal static string SelectLayoutAlghoritmType {
             get {
                 return ResourceManager.GetString("SelectLayoutAlghoritmType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zaktualizuj graf.
+        /// </summary>
+        internal static string UpdateGraph {
+            get {
+                return ResourceManager.GetString("UpdateGraph", resourceCulture);
             }
         }
         
@@ -102,6 +174,15 @@ namespace Graphs.Assets.Locales {
         internal static string VertexName {
             get {
                 return ResourceManager.GetString("VertexName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista wierzchołków.
+        /// </summary>
+        internal static string VerticesList {
+            get {
+                return ResourceManager.GetString("VerticesList", resourceCulture);
             }
         }
     }

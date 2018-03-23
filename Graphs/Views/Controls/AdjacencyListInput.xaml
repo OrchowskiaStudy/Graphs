@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-              xmlns:local="clr-namespace:Graphs.Views.Controls"
-             xmlns:tool="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"             
              mc:Ignorable="d"
              xmlns:cnv="clr-namespace:Graphs.Views.Converters"
              xmlns:vm="clr-namespace:Graphs.ViewModels"
@@ -13,10 +12,14 @@
         <vm:AdiacencyListInputViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
+        <cnv:LocalizationConverter x:Key="Loc" />
         <cnv:NumberConverter x:Key="NumberCnv"/>
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+
+        <clr:String x:Key="AddEdge">AddEdge</clr:String>
+        <clr:String x:Key="RemoveEdge">RemoveEdge</clr:String>
     </UserControl.Resources>
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
@@ -65,8 +68,8 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Row="1" >
-                    <Button Width="300" VerticalAlignment="Bottom" Content="MISSING-TRANSLATION-KEY-ADD-EDGE" Command="{Binding AddEdge}"/>
-                    <Button Width="300" VerticalAlignment="Bottom" Content="MISSING-TRANSLATION-KEY-REMOVE-EDGE" Command="{Binding RemoveEdge}"/>
+                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource AddEdge}, Converter={StaticResource Loc}}" Command="{Binding AddEdge}"/>
+                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource RemoveEdge}, Converter={StaticResource Loc}}" Command="{Binding RemoveEdge}"/>
                 </StackPanel>
             </Grid>
         </Border>

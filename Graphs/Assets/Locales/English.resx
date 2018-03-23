@@ -117,19 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddEdge" xml:space="preserve">
+    <value>Add edge</value>
+  </data>
+  <data name="AdjacencyList" xml:space="preserve">
+    <value>Adjacency list</value>
+  </data>
+  <data name="AdjacencyMatrix" xml:space="preserve">
+    <value>Adjacency matrix</value>
+  </data>
   <data name="Btn_CreateGraph" xml:space="preserve">
     <value>Create new graph</value>
+  </data>
+  <data name="EdgesList" xml:space="preserve">
+    <value>Edges list</value>
+  </data>
+  <data name="IncidenceMatrix" xml:space="preserve">
+    <value>Incidence matrix</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="MemoryView" xml:space="preserve">
+    <value>Vertices and Edges memory preview</value>
+  </data>
+  <data name="RemoveEdge" xml:space="preserve">
+    <value>Remove edge</value>
+  </data>
   <data name="SelectLayoutAlghoritmType" xml:space="preserve">
     <value>Select graph layout alghoritm type:</value>
+  </data>
+  <data name="UpdateGraph" xml:space="preserve">
+    <value>Update graph</value>
   </data>
   <data name="VertexAlreadyExists_error" xml:space="preserve">
     <value>Vertex already exist!</value>
   </data>
   <data name="VertexName" xml:space="preserve">
     <value>Name of Vertex</value>
+  </data>
+  <data name="VerticesList" xml:space="preserve">
+    <value>Vertices list</value>
   </data>
 </root>

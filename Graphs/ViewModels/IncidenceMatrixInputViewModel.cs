@@ -15,18 +15,19 @@ namespace Graphs.ViewModels
         public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
         public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
 
-        private IncidenceMatrix incidenceMatrix = new IncidenceMatrix();
+        private IncidenceMatrix _incidenceMatrix;
 
         public IncidenceMatrixInputViewModel()
         {
             GraphContext.Instance.Add(this);
-            Matrix = incidenceMatrix.ToMatrix().ToReferenceMatrix();
+            _incidenceMatrix = new IncidenceMatrix(Vertices, Edges);
+            Matrix = _incidenceMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
         }
 
         public void Notify()
         {
-            Matrix = incidenceMatrix.ToMatrix().ToReferenceMatrix();
+            Matrix = _incidenceMatrix.ToMatrix().ToReferenceMatrix();
             OnPropertyChanged(nameof(Matrix));
             OnPropertyChanged(nameof(Vertices));
             OnPropertyChanged(nameof(Edges));
@@ -34,7 +35,7 @@ namespace Graphs.ViewModels
 
         public RelayCommand MatrixValueChanged => new RelayCommand((sender) =>
         {
-            incidenceMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
+            _incidenceMatrix.UpdateContext(Matrix.ToNoReferenceMatrix());
         });
     }
 }

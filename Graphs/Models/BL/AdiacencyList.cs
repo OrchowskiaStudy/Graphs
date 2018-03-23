@@ -11,8 +11,14 @@ namespace Graphs.Models.BL
     public class AdiacencyList
     {
         private const string LIST_SEPARATOR = "⬌";
-        public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
-        public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
+        public List<Vertex> Vertices { get; private set; }
+        public List<Edge> Edges { get; private set; }
+
+        public AdiacencyList(List<Vertex> vertices, List<Edge> edges)
+        {
+            Vertices = vertices;
+            Edges = edges;
+        }
 
         public Dictionary<string,string> ToAdiacencyList()
         {

@@ -31,6 +31,12 @@ namespace Graphs.Models.BL
         {
         }
 
+        public static void ClearEdges()
+        {
+            _edgeCount = 0;
+            Instance.Edges.Clear();
+        }
+
         public void Add(IObserver observer)
         {
             _clients.Add(observer);

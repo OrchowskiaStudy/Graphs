@@ -107,11 +107,13 @@
     <Compile Include="Configuration\LocalizationConfig.cs" />
     <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Models\BL\AdiacencyList.cs" />
+    <Compile Include="Models\BL\BusinessExtensions.cs" />
     <Compile Include="Models\BL\IncidenceMatrix.cs" />
     <Compile Include="Models\BL\AdiacencyMatrix.cs" />
     <Compile Include="Models\BL\GraphContext.cs" />
     <Compile Include="Models\BL\Observer\IObservable.cs" />
     <Compile Include="Models\BL\Observer\IObserver.cs" />
+    <Compile Include="Models\BL\VertexDegree.cs" />
     <Compile Include="Models\Vertices\Node.cs" />
     <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
     <Compile Include="ViewModels\IncidenceMatrixInputViewModel.cs" />

@@ -10,8 +10,14 @@ namespace Graphs.Models.BL
 {
     public class AdiacencyMatrix
     {
-        public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
-        public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
+        public List<Vertex> Vertices { get; private set; }
+        public List<Edge> Edges { get; private set; }
+
+        public AdiacencyMatrix(List<Vertex> vertices, List<Edge> edges)
+        {
+            Vertices = vertices;
+            Edges = edges;
+        }
 
         public List<List<int>> ToMatrix()
         {
@@ -26,7 +32,7 @@ namespace Graphs.Models.BL
 
         public void UpdateContext(List<List<int>> list)
         {
-            Edges.Clear();
+            GraphContext.ClearEdges();
             for (int i = 0; i < list.Count; i++)
             {
                 for (int j = 0; j < list.Count; j++)
@@ -34,7 +40,10 @@ namespace Graphs.Models.BL
                     if (i == j) continue;
                     if (list[i][j] == 1 && list[j][i] == 1)
                     {
-                        Edges.Add(new Edge("", Vertices[i], Vertices[j]));
+                        var vertexT = Vertices[j];
+                        var vertexS = Vertices[i];
+                        if (!Edges.Where(e => e.Source == vertexS && e.Target == vertexT || e.Target == vertexS && e.Source == vertexT).Any())
+                            Edges.Add(new Edge("", vertexS, vertexT));
                     }
                 }
             }
