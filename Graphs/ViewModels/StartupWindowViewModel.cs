@@ -1,5 +1,9 @@
 ﻿using Graphs.Configuration;
+using Graphs.Models.BL;
+using Graphs.Models.BL.Observer;
+using Graphs.Views.Commands;
 using Graphs.Views.Converters;
+using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows;
@@ -28,6 +32,12 @@ namespace Graphs.ViewModels
             Application.Current.MainWindow = new StartupWindow();
             Application.Current.MainWindow.Show();
             oldWindow.Close();
-        }
+        }       
+
+        public RelayCommand CreateNewGraph => new RelayCommand((sender) => {
+            GraphContext.ClearEdges();
+            GraphContext.ClearVertices();
+            GraphContext.Instance.NotifyObservers(null);
+        });
     }
 }

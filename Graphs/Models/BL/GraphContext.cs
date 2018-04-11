@@ -37,6 +37,12 @@ namespace Graphs.Models.BL
             Instance.Edges.Clear();
         }
 
+        public static void ClearVertices()
+        {
+            _vertexCount = 0;
+            Instance.Vertices.Clear();
+        }
+
         public void Add(IObserver observer)
         {
             _clients.Add(observer);

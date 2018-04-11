@@ -14,7 +14,7 @@ namespace Graphs
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             _left.Navigate(new GraphVisualizationPage());
-            _right.Navigate(new FormPage());
+            _right.Navigate(new OptionsPage());
         }
     }
 }

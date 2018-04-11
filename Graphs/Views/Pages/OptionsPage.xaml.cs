@@ -7,9 +7,9 @@ using System.Windows.Input;
 
 namespace Graphs.Views.Pages
 {
-    public partial class FormPage : PageBase
+    public partial class OptionsPage : PageBase
     {
-        public FormPage()
+        public OptionsPage()
         {
             InitializeComponent();
         }

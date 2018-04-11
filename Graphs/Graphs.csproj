@@ -108,21 +108,31 @@
     <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Models\BL\AdiacencyList.cs" />
     <Compile Include="Models\BL\BusinessExtensions.cs" />
+    <Compile Include="Models\BL\Enumerations\EulerCycleResultType.cs" />
+    <Compile Include="Models\BL\Enumerations\HamiltonCycleType.cs" />
+    <Compile Include="Models\BL\HamiltonCycleFinder.cs" />
+    <Compile Include="Models\BL\HamiltonCycleTypeVerifier.cs" />
+    <Compile Include="Models\BL\EulerCycleTypeVerifier.cs" />
     <Compile Include="Models\BL\IncidenceMatrix.cs" />
     <Compile Include="Models\BL\AdiacencyMatrix.cs" />
     <Compile Include="Models\BL\GraphContext.cs" />
     <Compile Include="Models\BL\Observer\IObservable.cs" />
     <Compile Include="Models\BL\Observer\IObserver.cs" />
-    <Compile Include="Models\BL\VertexDegree.cs" />
+    <Compile Include="Models\BL\VertexDegreeComputer.cs" />
+    <Compile Include="Models\BL\EulerCycleFinder.cs" />
     <Compile Include="Models\Vertices\Node.cs" />
     <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
+    <Compile Include="ViewModels\GraphCyclesControlViewModel.cs" />
     <Compile Include="ViewModels\IncidenceMatrixInputViewModel.cs" />
     <Compile Include="ViewModels\AdiacencyMatrixViewModel.cs" />
-    <Compile Include="ViewModels\FormPageViewModel.cs" />
+    <Compile Include="ViewModels\OptionsViewModel.cs" />
     <Compile Include="ViewModels\GraphVisualisationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\StartupWindowViewModel.cs" />
     <Compile Include="Views\Commands\RelayCommand.cs" />
+    <Compile Include="Views\Controls\GraphCyclesControl.xaml.cs">
+      <DependentUpon>GraphCyclesControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\AdiacencyMatrixInput.xaml.cs">
       <DependentUpon>AdiacencyMatrixInput.xaml</DependentUpon>
     </Compile>
@@ -141,8 +151,8 @@
     <Compile Include="Views\Models\GraphLayoutView.cs" />
     <Compile Include="Views\Models\GraphView.cs" />
     <Compile Include="Models\Vertices\VertexView.cs" />
-    <Compile Include="Views\Pages\FormPage.xaml.cs">
-      <DependentUpon>FormPage.xaml</DependentUpon>
+    <Compile Include="Views\Pages\OptionsPage.xaml.cs">
+      <DependentUpon>OptionsPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\Brushes.xaml">
       <SubType>Designer</SubType>
@@ -151,6 +161,10 @@
     <Page Include="Assets\CustomControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\GraphCyclesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\AdiacencyMatrixInput.xaml">
       <SubType>Designer</SubType>
@@ -184,7 +198,7 @@
       <DependentUpon>StartupWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Pages\FormPage.xaml">
+    <Page Include="Views\Pages\OptionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,9 +221,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Matrices\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Assets\Locales\English.resx">
       <Generator>ResXFileCodeGenerator</Generator>
