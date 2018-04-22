@@ -19,6 +19,12 @@
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+        <clr:String x:Key="EulerCycle_title">EulerCycle_title</clr:String>
+        <clr:String x:Key="HamiltonCycle_title">HamiltonCycle_title</clr:String>
+        <clr:String x:Key="EulerCycleType">EulerCycleType</clr:String>
+        <clr:String x:Key="HamiltonCycleType">HamiltonCycleType</clr:String>
+        <clr:String x:Key="Find_btn">Find_btn</clr:String>
+        <clr:String x:Key="Solution">Solution</clr:String>
     </UserControl.Resources>
     <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
@@ -34,19 +40,18 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock FontSize="20" Text="EULER-CYCLE"/>
-            <Button Grid.Row="1" Content="FIND-BTN" Command="{Binding FindEulerCycleCommand}"/>
+            <TextBlock FontSize="20" Text="{Binding Source={StaticResource EulerCycle_title}, Converter={StaticResource Loc}}"/>
+            <Button Grid.Row="1" Content="{Binding Source={StaticResource Find_btn}, Converter={StaticResource Loc}}" Command="{Binding FindEulerCycleCommand}"/>
             <TextBlock Margin="0,20,0,0"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="2">
-                <Run Text="EulerCycleType"/>
-                <Run Text=":"/>
-                <Run Text="{Binding EulerCycleType, Mode=OneWay}"/>
+                <Run Text="{Binding Source={StaticResource EulerCycleType}, Converter={StaticResource Loc},Mode=OneWay}"/>
+                <Run Text="{Binding EulerCycleType, Converter={StaticResource Loc}, Mode=OneWay}"/>
             </TextBlock>
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="3">
-                <TextBlock FontSize="20" VerticalAlignment="Center" Text="Solution:"/>
+                <TextBlock FontSize="20" VerticalAlignment="Center" Text="{Binding Source={StaticResource Solution}, Converter={StaticResource Loc}}"/>
                 <TextBlock  FontSize="20" Text="{Binding EulerCycle, Mode=OneWay}" TextWrapping="Wrap"/>
             </StackPanel>
         </Grid>
-        
+
         <Grid Grid.Column="2" x:Name="Hamilton" Margin="10,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -54,15 +59,14 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock FontSize="20" Text="HAMILTON-CYCLE"/>
-            <Button Grid.Row="1" Content="FIND-BTN" Command="{Binding FindHamiltonCycleCommand}"/>
+            <TextBlock FontSize="20" Text="{Binding Source={StaticResource HamiltonCycle_title}, Converter={StaticResource Loc}}"/>
+            <Button Grid.Row="1" Content="{Binding Source={StaticResource Find_btn}, Converter={StaticResource Loc}}" Command="{Binding FindHamiltonCycleCommand}"/>
             <TextBlock Margin="0,20,0,0"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="2">
-                <Run Text="HamiltonCycleType"/>
-                <Run Text=":"/>
-                <Run Text="{Binding HamiltonCycleResultType, Mode=OneWay}"/>
+                <Run Text="{Binding Source={StaticResource HamiltonCycleType}, Converter={StaticResource Loc},Mode=OneWay}"/>
+                <Run Text="{Binding HamiltonCycleResultType, Converter={StaticResource Loc}, Mode=OneWay}"/>
             </TextBlock>
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="3">
-                <TextBlock FontSize="20" VerticalAlignment="Center" Text="Solution:"/>
+                <TextBlock FontSize="20" VerticalAlignment="Center" Text="{Binding Source={StaticResource Solution}, Converter={StaticResource Loc}}"/>
                 <TextBlock FontSize="20" Text="{Binding HamiltonCycle, Mode=OneWay}" TextWrapping="Wrap"/>
             </StackPanel>
         </Grid>

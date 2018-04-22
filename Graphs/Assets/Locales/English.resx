@@ -129,8 +129,47 @@
   <data name="Btn_CreateGraph" xml:space="preserve">
     <value>Create new graph</value>
   </data>
+  <data name="Cycles_tab" xml:space="preserve">
+    <value>Cycles</value>
+  </data>
   <data name="EdgesList" xml:space="preserve">
     <value>Edges list</value>
+  </data>
+  <data name="EulerCycleNotExist" xml:space="preserve">
+    <value>Cycle not exist</value>
+  </data>
+  <data name="EulerCycleType" xml:space="preserve">
+    <value>Euler result type:</value>
+  </data>
+  <data name="EulerCycleUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="EulerCycle_title" xml:space="preserve">
+    <value>EULER CYCLE</value>
+  </data>
+  <data name="EulerCyle" xml:space="preserve">
+    <value>Euler cycle</value>
+  </data>
+  <data name="EulerTrack" xml:space="preserve">
+    <value>Euler track</value>
+  </data>
+  <data name="Find_btn" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="HamiltonCycleNotExist" xml:space="preserve">
+    <value>Hamilton cycle not exist</value>
+  </data>
+  <data name="HamiltonCycleType" xml:space="preserve">
+    <value>Hamilton result type:</value>
+  </data>
+  <data name="HamiltonCycleUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="HamiltonCycle_title" xml:space="preserve">
+    <value>HAMILTON CYCLE</value>
+  </data>
+  <data name="HamiltonCyle" xml:space="preserve">
+    <value>Hamilton cycle</value>
   </data>
   <data name="IncidenceMatrix" xml:space="preserve">
     <value>Incidence matrix</value>
@@ -146,6 +185,9 @@
   </data>
   <data name="SelectLayoutAlghoritmType" xml:space="preserve">
     <value>Select graph layout alghoritm type:</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>Solution:</value>
   </data>
   <data name="UpdateGraph" xml:space="preserve">
     <value>Update graph</value>

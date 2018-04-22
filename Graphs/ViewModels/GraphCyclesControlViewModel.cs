@@ -52,7 +52,6 @@ namespace Graphs.ViewModels
 
         public RelayCommand FindHamiltonCycleCommand => new RelayCommand((param) =>
         {
-            throw new ArgumentException();
             VertexDegreeComputer computer = new VertexDegreeComputer(Edges, Vertices);
             Dictionary<Vertex, byte> degrees = computer.Compute();
             _hamiltonCycleType = new HamiltonCycleTypeVerifier().Verify(degrees);

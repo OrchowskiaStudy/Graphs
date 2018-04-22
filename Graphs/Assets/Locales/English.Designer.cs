@@ -97,11 +97,128 @@ namespace Graphs.Assets.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cycles.
+        /// </summary>
+        internal static string Cycles_tab {
+            get {
+                return ResourceManager.GetString("Cycles_tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edges list.
         /// </summary>
         internal static string EdgesList {
             get {
                 return ResourceManager.GetString("EdgesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EULER CYCLE.
+        /// </summary>
+        internal static string EulerCycle_title {
+            get {
+                return ResourceManager.GetString("EulerCycle_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle not exist.
+        /// </summary>
+        internal static string EulerCycleNotExist {
+            get {
+                return ResourceManager.GetString("EulerCycleNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Euler result type:.
+        /// </summary>
+        internal static string EulerCycleType {
+            get {
+                return ResourceManager.GetString("EulerCycleType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string EulerCycleUnknown {
+            get {
+                return ResourceManager.GetString("EulerCycleUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Euler cycle.
+        /// </summary>
+        internal static string EulerCyle {
+            get {
+                return ResourceManager.GetString("EulerCyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Euler track.
+        /// </summary>
+        internal static string EulerTrack {
+            get {
+                return ResourceManager.GetString("EulerTrack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find.
+        /// </summary>
+        internal static string Find_btn {
+            get {
+                return ResourceManager.GetString("Find_btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HAMILTON CYCLE.
+        /// </summary>
+        internal static string HamiltonCycle_title {
+            get {
+                return ResourceManager.GetString("HamiltonCycle_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hamilton cycle not exist.
+        /// </summary>
+        internal static string HamiltonCycleNotExist {
+            get {
+                return ResourceManager.GetString("HamiltonCycleNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hamilton result type:.
+        /// </summary>
+        internal static string HamiltonCycleType {
+            get {
+                return ResourceManager.GetString("HamiltonCycleType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string HamiltonCycleUnknown {
+            get {
+                return ResourceManager.GetString("HamiltonCycleUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hamilton cycle.
+        /// </summary>
+        internal static string HamiltonCyle {
+            get {
+                return ResourceManager.GetString("HamiltonCyle", resourceCulture);
             }
         }
         
@@ -147,6 +264,15 @@ namespace Graphs.Assets.Locales {
         internal static string SelectLayoutAlghoritmType {
             get {
                 return ResourceManager.GetString("SelectLayoutAlghoritmType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solution:.
+        /// </summary>
+        internal static string Solution {
+            get {
+                return ResourceManager.GetString("Solution", resourceCulture);
             }
         }
         

@@ -24,6 +24,7 @@
         <clr:String x:Key="EdgesList">EdgesList</clr:String>
         <clr:String x:Key="AdjacencyMatrix">AdjacencyMatrix</clr:String>
         <clr:String x:Key="AdjacencyList">AdjacencyList</clr:String>
+        <clr:String x:Key="Cycles_tab">Cycles_tab</clr:String>
         <clr:String x:Key="IncidenceMatrix">IncidenceMatrix</clr:String>
     </Page.Resources>
     <Grid Background="White">
@@ -42,7 +43,7 @@
                 <TabItem Header="{Binding Source={StaticResource IncidenceMatrix}, Converter={StaticResource Loc}}">
                     <controls:IncidenceMatrixInput/>
                 </TabItem>
-                <TabItem Header="CYCLES-MISSING-TRaNSLATION">
+                <TabItem Header="{Binding Source={StaticResource Cycles_tab}, Converter={StaticResource Loc}}">
                     <controls:GraphCyclesControl/>
                 </TabItem>
             </TabControl>
