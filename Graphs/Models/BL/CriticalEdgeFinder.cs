@@ -22,14 +22,16 @@ namespace Graphs.Models.BL
         public List<Edge> Find()
         {
             var criticalEdges = new HashSet<Edge>();
-            var copy = new List<Edge>(_edges);
-            foreach (var edge in copy)
-            {
-                var copy2 = new List<Edge>(_edges);
-                copy2.Remove(edge);
-                if (!IsConntected(copy2))
-                    criticalEdges.Add(edge);
-            }
+            if (IsConntected(_edges))
+                foreach (var edge in _edges)
+                {
+                    var copy = new List<Edge>(_edges);
+                    copy.Remove(edge);
+                    var s = IsConntected(copy);
+                    System.Diagnostics.Debug.WriteLine("Is connected : " + s);
+                    if (!IsConntected(copy))
+                        criticalEdges.Add(edge);
+                }
             return criticalEdges.ToList();
         }
 
@@ -55,7 +57,9 @@ namespace Graphs.Models.BL
                     b.ForEach(x => results.Add(x));
                 }
             }
-            return results.Count == _edges.Count;
+            VertexDegreeComputer computer = new VertexDegreeComputer(edges, _vertices);
+            Dictionary<Vertex, byte> degrees = computer.Compute();
+            return results.Count == edges.Count && !degrees.Values.Where(x => x == 0).Any();
         }
     }
 }

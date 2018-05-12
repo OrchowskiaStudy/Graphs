@@ -31,22 +31,29 @@
                 <Button Command="{Binding FindCriticalEdges}" Content="FIND"/>
             </StackPanel>
             <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <ItemsControl x:Name="lv" ItemsSource="{Binding CriticalEdges}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Width="100" Height="20">
                                 <TextBlock>
                                     <Run Text="ID"/>
-                                    <Run Text="{Binding Id}"/>
+                                    <Run Text="{Binding Id, Mode=OneWay}"/>
                                     <Run Text=":"/>
-                                    <Run Text="{Binding Source.Id}"/>
+                                    <Run Text="{Binding Source.Id, Mode=OneWay}"/>
                                     <Run Text="-"/>                                    
-                                    <Run Text="{Binding Target.Id}"/>
+                                    <Run Text="{Binding Target.Id, Mode=OneWay}"/>
                                 </TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <Grid Grid.Column="1">
+                    <TextBlock Text="Przeszukiwanie"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
