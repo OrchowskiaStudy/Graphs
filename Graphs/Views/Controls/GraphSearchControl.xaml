@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Graphs.Views.Controls.GraphSearchControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+             mc:Ignorable="d"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"
+             xmlns:cnv="clr-namespace:Graphs.Views.Converters"
+             xmlns:vm="clr-namespace:Graphs.ViewModels"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:GraphSearchControlViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cnv:LocalizationConverter x:Key="Loc" />
+        <cnv:NumberConverter x:Key="NumberCnv"/>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <clr:String x:Key="EulerCycle_title">EulerCycle_title</clr:String>
+
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="{Binding IsConnected}"/>
+                <Button Command="{Binding FindCriticalEdges}" Content="FIND"/>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <ItemsControl x:Name="lv" ItemsSource="{Binding CriticalEdges}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="100" Height="20">
+                                <TextBlock>
+                                    <Run Text="ID"/>
+                                    <Run Text="{Binding Id}"/>
+                                    <Run Text=":"/>
+                                    <Run Text="{Binding Source.Id}"/>
+                                    <Run Text="-"/>                                    
+                                    <Run Text="{Binding Target.Id}"/>
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

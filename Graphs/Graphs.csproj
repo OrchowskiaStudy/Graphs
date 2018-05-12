@@ -108,6 +108,7 @@
     <Compile Include="Extensions\MappingExtensions.cs" />
     <Compile Include="Models\BL\AdiacencyList.cs" />
     <Compile Include="Models\BL\BusinessExtensions.cs" />
+    <Compile Include="Models\BL\CriticalEdgeFinder.cs" />
     <Compile Include="Models\BL\Enumerations\EulerCycleResultType.cs" />
     <Compile Include="Models\BL\Enumerations\HamiltonCycleType.cs" />
     <Compile Include="Models\BL\HamiltonCycleFinder.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Models\BL\EulerCycleFinder.cs" />
     <Compile Include="Models\Vertices\Node.cs" />
     <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
+    <Compile Include="ViewModels\GraphSearchControlViewModel.cs" />
     <Compile Include="ViewModels\GraphCyclesControlViewModel.cs" />
     <Compile Include="ViewModels\IncidenceMatrixInputViewModel.cs" />
     <Compile Include="ViewModels\AdiacencyMatrixViewModel.cs" />
@@ -130,6 +132,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\StartupWindowViewModel.cs" />
     <Compile Include="Views\Commands\RelayCommand.cs" />
+    <Compile Include="Views\Controls\GraphSearchControl.xaml.cs">
+      <DependentUpon>GraphSearchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\GraphCyclesControl.xaml.cs">
       <DependentUpon>GraphCyclesControl.xaml</DependentUpon>
     </Compile>
@@ -161,6 +166,10 @@
     <Page Include="Assets\CustomControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\GraphSearchControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\GraphCyclesControl.xaml">
       <Generator>MSBuild:Compile</Generator>

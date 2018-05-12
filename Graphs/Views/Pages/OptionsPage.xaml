@@ -46,6 +46,9 @@
                 <TabItem Header="{Binding Source={StaticResource Cycles_tab}, Converter={StaticResource Loc}}">
                     <controls:GraphCyclesControl/>
                 </TabItem>
+                <TabItem Header="Lista 3">
+                    <controls:GraphSearchControl/>
+                </TabItem>
             </TabControl>
             <Grid Background="LightGray" Grid.Row="1">
                 <Border BorderThickness="5" Padding="10"  Margin="-2" CornerRadius="3" BorderBrush="{StaticResource Accent}">
