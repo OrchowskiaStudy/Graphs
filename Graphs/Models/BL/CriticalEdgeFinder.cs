@@ -45,16 +45,16 @@ namespace Graphs.Models.BL
             {
                 checkedEdges.Add(edge);
 
-                var c = copy.Where(x => x != edge && (x.Source == edge.Source || x.Target == edge.Target || x.Source == edge.Target || x.Target == edge.Source)).ToList();
+                var candidates = copy.Where(x => x != edge && (x.Source == edge.Source || x.Target == edge.Target || x.Source == edge.Target || x.Target == edge.Source)).ToList();
 
                 if (!results.Any())
                 {
-                    c.ForEach(x => results.Add(x));
+                    candidates.ForEach(x => results.Add(x));
                 }
                 else
                 {
-                    var b = c.Where(i => results.Where(x => (x.Source == i.Source || x.Target == i.Target || x.Source == i.Target || x.Target == i.Source)).Any()).ToList();
-                    b.ForEach(x => results.Add(x));
+                    var iDontKnowButWorks = candidates.Where(i => results.Where(x => (x.Source == i.Source || x.Target == i.Target || x.Source == i.Target || x.Target == i.Source)).Any()).ToList();
+                    iDontKnowButWorks.ForEach(x => results.Add(x));
                 }
             }
             VertexDegreeComputer computer = new VertexDegreeComputer(edges, _vertices);

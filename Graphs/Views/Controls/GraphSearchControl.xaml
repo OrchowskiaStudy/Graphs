@@ -52,7 +52,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
                 <Grid Grid.Column="1">
-                    <TextBlock Text="Przeszukiwanie"/>
+                    <TextBlock Text="TODO : Przeszukiwanie wgłąb lub wszerz + poprawki interfejsu"/>
                 </Grid>
             </Grid>
         </Grid>

@@ -147,6 +147,7 @@
     <Compile Include="Views\Controls\IncidenceMatrixInput.xaml.cs">
       <DependentUpon>IncidenceMatrixInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Converters\VertexToColorConverter.cs" />
     <Compile Include="Views\Converters\BoolToColorConverter.cs" />
     <Compile Include="Views\Converters\LocalizationConverter.cs" />
     <Compile Include="Views\Converters\LocalizationExtensions.cs" />

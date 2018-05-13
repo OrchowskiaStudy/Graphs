@@ -1,6 +1,7 @@
 ﻿using Graphs.Models.BL;
 using Graphs.ViewModels;
 using System;
+using System.Windows.Media;
 
 namespace Graphs.Models.Vertices
 {
@@ -12,6 +13,7 @@ namespace Graphs.Models.Vertices
         private string _name;
         public string Name { get { return _name; } set { _name = value; OnPropertyChanged(nameof(Name)); } }
         public bool IsSelected { get; set; }
+        public Brush CustomColor { get; set; }
 
         public Vertex(string id, string name = "")
         {
