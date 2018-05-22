@@ -1,14 +1,9 @@
-﻿using Graphs.Models;
-using Graphs.Models.BL;
+﻿using Graphs.Models.BL;
 using Graphs.Models.BL.Enumerations;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
 using Graphs.Views.Commands;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.ViewModels
 {
@@ -41,7 +36,7 @@ namespace Graphs.ViewModels
         private List<Edge> Edges = GraphContext.Instance.Edges;
 
         public RelayCommand FindEulerCycleCommand => new RelayCommand((param) =>
-        {            
+        {
             VertexDegreeComputer computer = new VertexDegreeComputer(Edges, Vertices);
             Dictionary<Vertex, byte> degrees = computer.Compute();
             _eulerCycleType = new EulerCycleTypeVerifier().Verify(degrees);

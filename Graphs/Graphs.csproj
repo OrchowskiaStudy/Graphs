@@ -109,6 +109,8 @@
     <Compile Include="Models\BL\AdiacencyList.cs" />
     <Compile Include="Models\BL\BusinessExtensions.cs" />
     <Compile Include="Models\BL\CriticalEdgeFinder.cs" />
+    <Compile Include="Models\BL\DeepFirstSearch.cs" />
+    <Compile Include="Models\BL\Enumerations\ColorOrders.cs" />
     <Compile Include="Models\BL\Enumerations\EulerCycleResultType.cs" />
     <Compile Include="Models\BL\Enumerations\HamiltonCycleType.cs" />
     <Compile Include="Models\BL\HamiltonCycleFinder.cs" />
@@ -121,7 +123,10 @@
     <Compile Include="Models\BL\Observer\IObserver.cs" />
     <Compile Include="Models\BL\VertexDegreeComputer.cs" />
     <Compile Include="Models\BL\EulerCycleFinder.cs" />
+    <Compile Include="Models\BL\VertexFamilyFactory.cs" />
+    <Compile Include="Models\BL\VerticesPainter.cs" />
     <Compile Include="Models\Vertices\Node.cs" />
+    <Compile Include="Models\Vertices\VertexFamily.cs" />
     <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
     <Compile Include="ViewModels\GraphSearchControlViewModel.cs" />
     <Compile Include="ViewModels\GraphCyclesControlViewModel.cs" />

@@ -1,10 +1,7 @@
 ﻿using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
@@ -18,6 +15,7 @@ namespace Graphs.Models.BL
             Vertices = vertices;
             Edges = edges;
         }
+
         public List<List<int>> ToMatrix()
         {
             List<List<int>> matrix = new List<List<int>>();
@@ -42,7 +40,6 @@ namespace Graphs.Models.BL
                     var vertexT = Vertices[v2];
                     if (!Edges.Where(e => e.Source == vertexS && e.Target == vertexT || e.Target == vertexS && e.Source == vertexT).Any())
                         Edges.Add(new Edge("", vertexS, vertexT));
-
                 }
             }
             GraphContext.Instance.NotifyObservers(null);

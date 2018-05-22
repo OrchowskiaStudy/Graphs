@@ -3,11 +3,8 @@ using Graphs.Models.BL.Observer;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
 using Graphs.Views.Commands;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.ViewModels
 {
@@ -20,6 +17,7 @@ namespace Graphs.ViewModels
         public Vertex SelectedC2 { get; set; }
 
         private AdiacencyList _adiacencyList;
+
         public AdiacencyListInputViewModel()
         {
             _adiacencyList = new AdiacencyList(Vertices, Edges);
@@ -49,7 +47,6 @@ namespace Graphs.ViewModels
             Edges.Remove(Find().FirstOrDefault());
             GraphContext.Instance.NotifyObservers(null);
         });
-
 
         public RelayCommand AddEdge => new RelayCommand((param) =>
         {

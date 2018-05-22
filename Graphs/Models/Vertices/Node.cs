@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Graphs.Models.Vertices
+﻿namespace Graphs.Models.Vertices
 {
-
     public class Node
     {
         private const string EMPTY_MASK_VALUE = "_";

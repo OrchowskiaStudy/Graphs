@@ -39,11 +39,11 @@ namespace Graphs.Models.Edges
                 return hash;
             }
         }
+
         public int CompareTo(Edge other)
         {
             return Number.CompareTo(other.Number);
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -51,15 +51,15 @@ namespace Graphs.Models.Edges
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
+
     public class WeightRef : ViewModelBase
     {
         private const string EMPTY_MASK_VALUE = "_";
         private const string DEFAULT_VALUE = "1";
 
         private Edge edge;
+
         public string Value
         {
             get { return edge.Weight.ToString(); }

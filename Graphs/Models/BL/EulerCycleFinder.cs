@@ -1,11 +1,8 @@
 ﻿using Graphs.Models.BL.Enumerations;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
@@ -17,6 +14,7 @@ namespace Graphs.Models.BL
     {
         private const string LIST_SEPARATOR = "⬌";
         private const byte ISOLATED_DEGREE = 0;
+
         private EulerCycleResultType[] _unsupportedTypes = new EulerCycleResultType[]
         {
             EulerCycleResultType.Track,
@@ -24,11 +22,10 @@ namespace Graphs.Models.BL
             EulerCycleResultType.Unknown
         };
 
-
         /// <summary>
         /// REFACTOR NEEDED @#$%@$%^&#%^&*@$#@
         /// it's late, i'm tired, i don't care - but it's crap :/
-        /// </summary>        
+        /// </summary>
         public string Find(Dictionary<Vertex, byte> degrees, List<Edge> edges, EulerCycleResultType type)
         {
             if (ValidateType(type)) { return string.Empty; }
@@ -56,7 +53,7 @@ namespace Graphs.Models.BL
                 else
                 {
                     break;
-                }                
+                }
             }
             return string.Join(LIST_SEPARATOR, solution.Select(x => x.Key.Id));
         }

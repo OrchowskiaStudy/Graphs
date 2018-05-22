@@ -1,9 +1,7 @@
 ﻿using Graphs.Models.BL;
 using Graphs.Models.BL.Observer;
-using Graphs.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System;
 
 namespace Graphs.Views.Controls
 {
@@ -25,7 +23,6 @@ namespace Graphs.Views.Controls
 
         public void Notify()
         {
-
         }
     }
 }

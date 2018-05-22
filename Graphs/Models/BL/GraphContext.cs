@@ -8,9 +8,9 @@ namespace Graphs.Models.BL
 {
     public class GraphContext : IObserverable
     {
-        static int _vertexCount = 0;
+        private static int _vertexCount = 0;
         public static int VertexCount { get { return ++_vertexCount; } }
-        static int _edgeCount = 0;
+        private static int _edgeCount = 0;
         public static int EdgeCount { get { return ++_edgeCount; } }
         private static GraphContext _instance;
         private readonly HashSet<IObserver> _clients = new HashSet<IObserver>();

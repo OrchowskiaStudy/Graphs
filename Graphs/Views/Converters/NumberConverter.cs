@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace Graphs.Views.Converters
@@ -13,7 +9,7 @@ namespace Graphs.Views.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var number = value.ToString();
-            if(int.TryParse(number, out int result))
+            if (int.TryParse(number, out int result))
             {
                 return result;
             }

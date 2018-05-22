@@ -88,6 +88,15 @@ namespace Graphs.Assets.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Koloruj.
+        /// </summary>
+        internal static string Btn_Color {
+            get {
+                return ResourceManager.GetString("Btn_Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utwórz nowy graf.
         /// </summary>
         internal static string Btn_CreateGraph {

@@ -3,8 +3,6 @@ using Graphs.Models.Vertices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
@@ -20,7 +18,7 @@ namespace Graphs.Models.BL
             Edges = edges;
         }
 
-        public Dictionary<string,string> ToAdiacencyList()
+        public Dictionary<string, string> ToAdiacencyList()
         {
             return Vertices.ToDictionary(key => key.Id, value => GetAdjacencies(value));
         }

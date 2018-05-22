@@ -5,7 +5,6 @@ using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
 using Graphs.Views.Commands;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Graphs.ViewModels
 {
@@ -15,6 +14,7 @@ namespace Graphs.ViewModels
         private AdiacencyMatrix _adiacencyMatrix;
         public List<Vertex> Vertices { get; private set; } = GraphContext.Instance.Vertices;
         public List<Edge> Edges { get; private set; } = GraphContext.Instance.Edges;
+
         public AdiacencyMatrixInputViewModel()
         {
             GraphContext.Instance.Add(this);
@@ -29,7 +29,7 @@ namespace Graphs.ViewModels
             OnPropertyChanged(nameof(Matrix));
             OnPropertyChanged(nameof(Vertices));
             OnPropertyChanged(nameof(Edges));
-        }        
+        }
 
         public RelayCommand MatrixValueChanged => new RelayCommand((sender) =>
         {

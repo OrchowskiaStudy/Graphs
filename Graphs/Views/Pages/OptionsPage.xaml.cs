@@ -1,8 +1,6 @@
 ﻿using Graphs.Models.BL;
-using Graphs.Models.BL.Observer;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
-using System;
 using System.Windows.Input;
 
 namespace Graphs.Views.Pages
@@ -37,7 +35,7 @@ namespace Graphs.Views.Pages
 
         private void EdgeWeightUpdate(object sender, KeyEventArgs e)
         {
-            if(sender is Edge edge)
+            if (sender is Edge edge)
             {
                 edge.OnPropertyChanged(nameof(edge.Weight));
                 GraphContext.Instance.NotifyObservers(this);

@@ -12,7 +12,7 @@
       mc:Ignorable="d"
       Title="AdiacencyMatrix">
     <Page.DataContext>
-        <vm:OptionsViewModel/>
+        <vm:OptionsViewModel />
     </Page.DataContext>
     <Page.Resources>
         <cnv:LocalizationConverter x:Key="Loc" />
@@ -30,76 +30,76 @@
     <Grid Background="White">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <TabControl Padding="10">
                 <TabItem Header="{Binding Source={StaticResource AdjacencyMatrix}, Converter={StaticResource Loc}}">
                     <controls:AdiacencyMatrixInput />
                 </TabItem>
                 <TabItem Header="{Binding Source={StaticResource AdjacencyList}, Converter={StaticResource Loc}}">
-                    <controls:AdjacencyListInput/>
+                    <controls:AdjacencyListInput />
                 </TabItem>
                 <TabItem Header="{Binding Source={StaticResource IncidenceMatrix}, Converter={StaticResource Loc}}">
-                    <controls:IncidenceMatrixInput/>
+                    <controls:IncidenceMatrixInput />
                 </TabItem>
                 <TabItem Header="{Binding Source={StaticResource Cycles_tab}, Converter={StaticResource Loc}}">
-                    <controls:GraphCyclesControl/>
+                    <controls:GraphCyclesControl />
                 </TabItem>
                 <TabItem Header="Lista 3">
-                    <controls:GraphSearchControl/>
+                    <controls:GraphSearchControl />
                 </TabItem>
             </TabControl>
             <Grid Background="LightGray" Grid.Row="1">
                 <Border BorderThickness="5" Padding="10"  Margin="-2" CornerRadius="3" BorderBrush="{StaticResource Accent}">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="20" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding Source={StaticResource MemoryView}, Converter={StaticResource Loc}}"/>
+                        <TextBlock Text="{Binding Source={StaticResource MemoryView}, Converter={StaticResource Loc}}" />
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="1"/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <StackPanel x:Name="VerticesSection" HorizontalAlignment="Stretch">
-                                <TextBlock Text="{Binding Source={StaticResource VerticesList}, Converter={StaticResource Loc}}"/>
+                                <TextBlock Text="{Binding Source={StaticResource VerticesList}, Converter={StaticResource Loc}}" />
                                 <ItemsControl x:Name="lv" ItemsSource="{Binding Vertices}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Text="{Binding Id}"/>
-                                                <TextBox Grid.Column="1" Text="{Binding Path=Name,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="VerticeNameUpdate"/>
+                                                <TextBlock Text="{Binding Id}" />
+                                                <TextBox Grid.Column="1" Text="{Binding Path=Name,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="VerticeNameUpdate" />
                                             </Grid>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </StackPanel>
 
-                            <Grid Grid.Column="1" Background="Black"/>
+                            <Grid Grid.Column="1" Background="Black" />
 
                             <StackPanel Margin="10,0,0,0" Grid.Column="2" x:Name="EdgesSection" HorizontalAlignment="Stretch">
-                                <TextBlock Text="{Binding Source={StaticResource EdgesList}, Converter={StaticResource Loc}}"/>
+                                <TextBlock Text="{Binding Source={StaticResource EdgesList}, Converter={StaticResource Loc}}" />
                                 <ItemsControl x:Name="le" ItemsSource="{Binding Edges}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Text="{Binding Id}"/>
-                                                <TextBlock Grid.Column="1" Text="{Binding Path=Source.Id}"/>
-                                                <TextBlock Grid.Column="2" Text="{Binding Path=Target.Id}"/>
-                                                <tool:MaskedTextBox Grid.Column="3"  Mask="0" Text="{Binding Path=WeightRef.Value,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="EdgeWeightUpdate"/>
+                                                <TextBlock Text="{Binding Id}" />
+                                                <TextBlock Grid.Column="1" Text="{Binding Path=Source.Id}" />
+                                                <TextBlock Grid.Column="2" Text="{Binding Path=Target.Id}" />
+                                                <tool:MaskedTextBox Grid.Column="3"  Mask="0" Text="{Binding Path=WeightRef.Value,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="EdgeWeightUpdate" />
                                             </Grid>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

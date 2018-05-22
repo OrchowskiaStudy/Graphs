@@ -15,9 +15,9 @@
     </UserControl.DataContext>
     <UserControl.Resources>
         <cnv:LocalizationConverter x:Key="Loc" />
-        <cnv:NumberConverter x:Key="NumberCnv"/>
+        <cnv:NumberConverter x:Key="NumberCnv" />
         <Style TargetType="TextBox">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="Black" />
         </Style>
 
         <clr:String x:Key="UpdateGraph">UpdateGraph</clr:String>
@@ -25,58 +25,58 @@
     <Grid Background="Transparent">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
             </Grid.RowDefinitions>
             <StackPanel>
                 <ItemsControl x:Name="eIds" Height="20" Margin="20,0,0,0" ItemsSource="{Binding Vertices}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
+                            <StackPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock                                
+                            <TextBlock
                                    TextAlignment="Center"
                                    TextTrimming="CharacterEllipsis"
                                    Width="20" Height="20"
                                    Text="{Binding Id,Mode=OneWay}"
-                                   Foreground="Black"/>
+                                   Foreground="Black" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <ItemsControl x:Name="vIds" Width="20" VerticalAlignment="Top" ItemsSource="{Binding Vertices}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock TextAlignment="Center"                                   
+                                <TextBlock TextAlignment="Center"
                                    Width="20" Height="20"
                                    Text="{Binding Id,Mode=OneWay}"
-                                   Foreground="Black"/>
+                                   Foreground="Black" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <ItemsControl Grid.Column="1" x:Name="lv" ItemsSource="{Binding Matrix}" >
+                    <ItemsControl Grid.Column="1" x:Name="lv" ItemsSource="{Binding Matrix}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <ItemsControl ItemsSource="{Binding}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal"/>
+                                            <StackPanel Orientation="Horizontal" />
                                         </ItemsPanelTemplate>
                                     </ItemsControl.ItemsPanel>
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <tool:MaskedTextBox Width="20" 
-                                                        Height="20" 
-                                                        HorizontalContentAlignment="Center" 
-                                                        Foreground="Black"  
+                                            <tool:MaskedTextBox Width="20"
+                                                        Height="20"
+                                                        HorizontalContentAlignment="Center"
+                                                        Foreground="Black"
                                                         Mask="0"
                                                         Text="{Binding Path=N, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                             </tool:MaskedTextBox>
@@ -88,7 +88,7 @@
                     </ItemsControl>
                 </Grid>
             </StackPanel>
-            <Button Grid.Row="1" Content="{Binding Source={StaticResource UpdateGraph}, Converter={StaticResource Loc}}" Command="{Binding MatrixValueChanged}"/>
+            <Button Grid.Row="1" Content="{Binding Source={StaticResource UpdateGraph}, Converter={StaticResource Loc}}" Command="{Binding MatrixValueChanged}" />
         </Grid>
     </Grid>
 </UserControl>

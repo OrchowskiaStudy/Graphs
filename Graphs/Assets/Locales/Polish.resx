@@ -126,6 +126,9 @@
   <data name="AdjacencyMatrix" xml:space="preserve">
     <value>Macierz sąsiedztwa</value>
   </data>
+  <data name="Btn_Color" xml:space="preserve">
+    <value>Koloruj</value>
+  </data>
   <data name="Btn_CreateGraph" xml:space="preserve">
     <value>Utwórz nowy graf</value>
   </data>

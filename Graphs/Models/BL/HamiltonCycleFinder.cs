@@ -1,11 +1,8 @@
 ﻿using Graphs.Models.BL.Enumerations;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
@@ -13,6 +10,7 @@ namespace Graphs.Models.BL
     {
         private const string LIST_SEPARATOR = "⬌";
         private List<List<Vertex>> _solutions = new List<List<Vertex>>();
+
         public string Find(Dictionary<Vertex, byte> degrees, List<Edge> edges, HamiltonCycleType type)
         {
             if (edges.Count < 3 || type == HamiltonCycleType.NotExist)
@@ -25,7 +23,7 @@ namespace Graphs.Models.BL
             _solutions.Add(solution);
             Procedure(startVertex, edgesCopy, degrees.Keys.ToList(), solution);
             //
-            var results = _solutions.Where(s => edges.Where(e=> ((s.First() == e.Source && s.Last() == e.Target) || (s.First() == e.Target && s.Last() == e.Source))&& degrees.Count == s.Count).Any()).ToList();
+            var results = _solutions.Where(s => edges.Where(e => ((s.First() == e.Source && s.Last() == e.Target) || (s.First() == e.Target && s.Last() == e.Source)) && degrees.Count == s.Count).Any()).ToList();
             if (results.Any())
             {
                 var result = results.FirstOrDefault();

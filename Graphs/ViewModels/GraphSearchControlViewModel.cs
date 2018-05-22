@@ -1,23 +1,20 @@
-﻿using Graphs.Models;
-using Graphs.Models.BL;
-using Graphs.Models.BL.Enumerations;
+﻿using Graphs.Models.BL;
 using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
 using Graphs.Views.Commands;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.ViewModels
 {
     public class GraphSearchControlViewModel : ViewModelBase
     {
+        private const string LIST_SEPARATOR = "⬌";
         private List<Vertex> Vertices = GraphContext.Instance.Vertices;
         private List<Edge> Edges = GraphContext.Instance.Edges;
         public bool IsConnected { get; set; }
         public List<Edge> CriticalEdges { get; set; }
+        public string SearchOrder { get; private set; }
 
         public RelayCommand FindCriticalEdges => new RelayCommand((param) =>
         {
@@ -26,6 +23,13 @@ namespace Graphs.ViewModels
             CriticalEdges = finder.Find();
             OnPropertyChanged(nameof(CriticalEdges));
             OnPropertyChanged(nameof(IsConnected));
+        });
+
+        public RelayCommand  RunDeepFirstSearch=> new RelayCommand((param) =>
+        {
+            DeepFirstSearch deepFirstSearch = new DeepFirstSearch(Vertices, Edges);
+            SearchOrder = string.Join(LIST_SEPARATOR, deepFirstSearch.VisitAll().Select(x => x.Id));
+            OnPropertyChanged(nameof(SearchOrder));            
         });
     }
 }

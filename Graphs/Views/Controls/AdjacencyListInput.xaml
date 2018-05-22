@@ -1,9 +1,9 @@
 ﻿<UserControl x:Class="Graphs.Views.Controls.AdjacencyListInput"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:clr="clr-namespace:System;assembly=mscorlib"             
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              xmlns:cnv="clr-namespace:Graphs.Views.Converters"
              xmlns:vm="clr-namespace:Graphs.ViewModels"
@@ -13,9 +13,9 @@
     </UserControl.DataContext>
     <UserControl.Resources>
         <cnv:LocalizationConverter x:Key="Loc" />
-        <cnv:NumberConverter x:Key="NumberCnv"/>
+        <cnv:NumberConverter x:Key="NumberCnv" />
         <Style TargetType="TextBox">
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="Black" />
         </Style>
 
         <clr:String x:Key="AddEdge">AddEdge</clr:String>
@@ -23,53 +23,53 @@
     </UserControl.Resources>
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-            <ItemsControl x:Name="lv" ItemsSource="{Binding AdiacencyList}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontWeight="ExtraBold">
-                            <Run Text="{Binding Key,Mode=OneWay}"/>
-                            <Run Text=" -> "/>
-                            </TextBlock>
-                        <TextBlock FontWeight="Light" Text="{Binding Path=Value ,Mode=OneWay}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+        <ItemsControl x:Name="lv" ItemsSource="{Binding AdiacencyList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="ExtraBold">
+                            <Run Text="{Binding Key,Mode=OneWay}" />
+                            <Run Text=" -> " />
+                        </TextBlock>
+                        <TextBlock FontWeight="Light" Text="{Binding Path=Value ,Mode=OneWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Border Grid.Row="1"  BorderThickness="5" Margin="-2" CornerRadius="3" BorderBrush="{StaticResource Accent}">
             <Grid Background="LightGray">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel Width="100">
-                        <TextBlock Text="V1"/>
+                        <TextBlock Text="V1" />
                         <ComboBox x:Name="c1"  ItemsSource="{Binding Vertices}" SelectedItem="{Binding SelectedC1,Mode=TwoWay}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Id}"/>
+                                    <TextBlock Text="{Binding Id}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Width="100">
-                        <TextBlock Text="V2"/>
+                        <TextBlock Text="V2" />
                         <ComboBox x:Name="c2" ItemsSource="{Binding Vertices}" SelectedItem="{Binding SelectedC2,Mode=TwoWay}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Id}"/>
+                                    <TextBlock Text="{Binding Id}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="1" >
-                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource AddEdge}, Converter={StaticResource Loc}}" Command="{Binding AddEdge}"/>
-                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource RemoveEdge}, Converter={StaticResource Loc}}" Command="{Binding RemoveEdge}"/>
+                <StackPanel Grid.Row="1">
+                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource AddEdge}, Converter={StaticResource Loc}}" Command="{Binding AddEdge}" />
+                    <Button Width="300" VerticalAlignment="Bottom" Content="{Binding Source={StaticResource RemoveEdge}, Converter={StaticResource Loc}}" Command="{Binding RemoveEdge}" />
                 </StackPanel>
             </Grid>
         </Border>

@@ -19,6 +19,7 @@
             <Setter Property="Foreground" Value="White" />
         </Style>
         <clr:String x:Key="CreateGraphKey">Btn_CreateGraph</clr:String>
+        <clr:String x:Key="Color">Btn_Color</clr:String>
         <clr:String x:Key="LanuageKey">Language</clr:String>
     </Window.Resources>
     <Window.DataContext>
@@ -38,7 +39,31 @@
             </Grid.ColumnDefinitions>
             <Button Margin="10" MinWidth="70"
                     Content="{Binding Source={StaticResource CreateGraphKey}, Converter={StaticResource Loc}}"
-                    Foreground="Black" Command="{Binding CreateNewGraph}"/>       
+                    Foreground="Black" Command="{Binding CreateNewGraph}" />
+            <Grid Grid.Column="1" Grid.ColumnSpan="2"  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button MinWidth="70"
+                    Content="{Binding Source={StaticResource Color}, Converter={StaticResource Loc}}"
+                    Foreground="Black" Command="{Binding ColorGraph}" />
+                <ComboBox Grid.Column="1"
+                          SelectedItem="{Binding SelectedColoring, Mode=TwoWay}"
+                          ItemsSource="{Binding ColoringOrders}"
+                          MinWidth="100"
+                          Margin="10,0,10,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Foreground="Black"
+                                       FontSize="16"
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                
+            </Grid>
             <StackPanel Name="LanguageSelection"  Grid.Column="3" HorizontalAlignment="Right">
                 <TextBlock FontSize="16"
                            FontWeight="Bold"

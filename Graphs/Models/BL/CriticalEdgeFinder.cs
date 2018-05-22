@@ -1,10 +1,7 @@
 ﻿using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Graphs.Models.BL
 {
@@ -28,7 +25,6 @@ namespace Graphs.Models.BL
                     var copy = new List<Edge>(_edges);
                     copy.Remove(edge);
                     var s = IsConntected(copy);
-                    System.Diagnostics.Debug.WriteLine("Is connected : " + s);
                     if (!IsConntected(copy))
                         criticalEdges.Add(edge);
                 }

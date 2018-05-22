@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Media;
 
 namespace Graphs.ViewModels
 {
@@ -52,7 +51,7 @@ namespace Graphs.ViewModels
             Random random = new Random();
 
             var vertex = new Vertex(VertexName, VertexName);
-            
+
             Vertices.Add(vertex);
             GraphView.AddVertex(vertex);
             GraphContext.Instance.NotifyObservers(this);

@@ -1,10 +1,9 @@
 ﻿using Graphs.Configuration;
+using Graphs.Models.BL;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
-using System;
 using System.Windows.Threading;
-using System.Diagnostics;
-using Graphs.Models.BL;
 
 namespace Graphs
 {

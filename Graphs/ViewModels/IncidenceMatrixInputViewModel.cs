@@ -5,7 +5,6 @@ using Graphs.Models.Edges;
 using Graphs.Models.Vertices;
 using Graphs.Views.Commands;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Graphs.ViewModels
 {
