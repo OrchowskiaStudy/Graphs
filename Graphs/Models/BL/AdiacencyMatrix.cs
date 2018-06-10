@@ -51,9 +51,8 @@ namespace Graphs.Models.BL
         {
             for (int i = 0; i < Vertices.Count; i++)
             {
-                var result = Edges.ToList().Where(edge => ((edge.Target.Equals(Vertices[i])) && (edge.Source.Equals(Vertices[p])))
+                yield return Edges.ToList().Where(edge => ((edge.Target.Equals(Vertices[i])) && (edge.Source.Equals(Vertices[p])))
                 || (edge.Source.Equals(Vertices[i])) && (edge.Target.Equals(Vertices[p]))).Any() ? 1 : 0;
-                yield return result;
             }
         }
     }

@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Graphs.Views.Controls.DijkstraPathFindingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"
+             xmlns:cnv="clr-namespace:Graphs.Views.Converters"
+             xmlns:vm="clr-namespace:Graphs.ViewModels"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:DijkstraControlViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <cnv:LocalizationConverter x:Key="Loc" />
+        <cnv:NumberConverter x:Key="NumberCnv" />
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock 
+                    VerticalAlignment="Center"
+                    TextAlignment="Center"
+                    Text="Wybierz wierzchołek startowy poprzez dwukrotne kliknięcie"/>
+                <Button Command="{Binding FindPaths}" Content="find paths" />
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <ItemsControl x:Name="lv" ItemsSource="{Binding Results}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="14" FontWeight="Bold" Text="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -128,6 +128,7 @@
     <Compile Include="Models\Vertices\Node.cs" />
     <Compile Include="Models\Vertices\VertexFamily.cs" />
     <Compile Include="ViewModels\AdiacencyListInputViewModel.cs" />
+    <Compile Include="ViewModels\DijkstraControlViewModel.cs" />
     <Compile Include="ViewModels\GraphSearchControlViewModel.cs" />
     <Compile Include="ViewModels\GraphCyclesControlViewModel.cs" />
     <Compile Include="ViewModels\IncidenceMatrixInputViewModel.cs" />
@@ -137,6 +138,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\StartupWindowViewModel.cs" />
     <Compile Include="Views\Commands\RelayCommand.cs" />
+    <Compile Include="Views\Controls\DjikstraPathFindingControl.xaml.cs">
+      <DependentUpon>DjikstraPathFindingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\GraphSearchControl.xaml.cs">
       <DependentUpon>GraphSearchControl.xaml</DependentUpon>
     </Compile>
@@ -172,6 +176,10 @@
     <Page Include="Assets\CustomControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\DjikstraPathFindingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\GraphSearchControl.xaml">
       <Generator>MSBuild:Compile</Generator>
